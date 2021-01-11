@@ -8,7 +8,7 @@ const md = data => {
 
   return (
     <div>
-      <h1 className="page-title">{frontmatter.title}</h1>
+      <h1 clas>{frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   )

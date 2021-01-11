@@ -9,12 +9,7 @@ const md = ({ data }) => {
 
   return (
     <>
-      <h1 className="page-title">{frontmatter.title}</h1>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
+c
 
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {

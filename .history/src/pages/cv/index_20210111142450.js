@@ -2,14 +2,13 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import WorkArticle from "../../components/WorkArticle"
+import CvArticle from "../../components/CvArticle"
 
 const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   return (
     <>
-      <h1 className="page-title">{frontmatter.title}</h1>
       <div
         dangerouslySetInnerHTML={{
           __html: html,
@@ -18,17 +17,17 @@ const md = ({ data }) => {
 
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
-          return <WorkArticle edge={edge} />
+          return <CvArticle edge={edge} />
         })}
       </div>
     </>
   )
 }
 
-const Work = ({ data }) => (
+const Cv = ({ data }) => (
   <Layout>
-    <Helmet bodyAttributes={{ class: "work-page" }}>
-      <title>Work Page</title>
+    <Helmet bodyAttributes={{ class: "cv-page" }}>
+      <title>CV Page</title>
     </Helmet>
     <main>
       <div class="container">
@@ -41,19 +40,16 @@ const Work = ({ data }) => (
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/work/" } }
+      filter: { fileAbsolutePath: { regex: "/cv/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           html
           frontmatter {
-            title
-            date
-            year
-            image
-            button
-            url
+            role
+            company
+            dates
           }
         }
       }
@@ -61,4 +57,4 @@ export const query = graphql`
   }
 `
 
-export default Work
+export default Cv

@@ -5,14 +5,12 @@ import Layout from "../../components/Layout"
 import WorkArticle from "../../components/WorkArticle"
 
 const md = ({ data }) => {
-  const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
-
   return (
     <>
       <h1 className="page-title">{frontmatter.title}</h1>
       <div
         dangerouslySetInnerHTML={{
-          __html: html,
+          __html: data.allMarkdownRemark.edges[0].node.html,
         }}
       />
 
