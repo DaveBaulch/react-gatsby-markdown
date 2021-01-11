@@ -19,7 +19,11 @@ const md = ({ data }) => {
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
           return (
-            <div data-sal="fade">
+            <div
+              data-sal="slide-up"
+              data-sal-delay="300"
+              data-sal-easing="ease"
+            >
               <CvArticle edge={edge} />
             </div>
           )
@@ -52,7 +56,6 @@ export const query = graphql`
         node {
           html
           frontmatter {
-            date
             title
             role
             company

@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
 import CvArticle from "../../components/CvArticle"
+import { Waypoint } from "react-waypoint"
 
 const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
@@ -18,11 +19,13 @@ const md = ({ data }) => {
 
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
-          return (
-            <div data-sal="fade">
-              <CvArticle edge={edge} />
-            </div>
-          )
+          return (<div
+                  data-sal="slide-up"
+                  data-sal-delay="300"
+                  data-sal-easing="ease"
+                ></div><CvArticle edge={edge} />
+          </div>
+      )
         })}
       </div>
     </>
@@ -52,7 +55,6 @@ export const query = graphql`
         node {
           html
           frontmatter {
-            date
             title
             role
             company

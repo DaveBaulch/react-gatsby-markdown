@@ -19,7 +19,7 @@ const md = ({ data }) => {
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
           return (
-            <div data-sal="fade">
+            <div data-sal="slide-up">
               <CvArticle edge={edge} />
             </div>
           )

@@ -19,7 +19,7 @@ const md = ({ data }) => {
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
           return (
-            <div data-sal="fade">
+            <div data-sal="slide-up">
               <CvArticle edge={edge} />
             </div>
           )
@@ -46,13 +46,12 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/cv/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
     ) {
       edges {
         node {
           html
           frontmatter {
-            date
             title
             role
             company
