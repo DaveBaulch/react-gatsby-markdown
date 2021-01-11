@@ -6,10 +6,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +17,7 @@ body {
 
   @include breakpoint(lg) {
     font-size: $body-font-desktop;
-  }
+  }  
 }
 
 html,

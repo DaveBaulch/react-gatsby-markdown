@@ -1,0 +1,73 @@
+@import "../../sass/utilities/variables";
+@import "../../sass/utilities/mixins";
+
+.cv-item {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+
+  .sal-animate & {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.cv-item__inner {
+  // width: 100%;
+  margin: 3rem 0 2rem 0;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  padding: 1rem;
+  flex-direction: column;
+
+  @include breakpoint(sm) {
+    padding: 2rem;
+  }
+}
+
+.cv-item__position {
+  font-weight: bold;
+  line-height: 1.2;
+
+  @include breakpoint(sm) {
+    font-size: 2.8rem;
+  }
+}
+
+.cv-item__company {
+  font-weight: bold;
+  color: #d94a19;
+  font-size: 2rem;
+}
+
+.cv-item__date {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.cv-item__body {
+  ul {
+    margin-left: 0;
+  }
+
+  li {
+    list-style: none;
+    padding-left: 13px;
+    position: relative;
+
+    &:before {
+      content: "-";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    p {
+      margin: 0;
+      display: inline-block;
+    }
+  }
+}
