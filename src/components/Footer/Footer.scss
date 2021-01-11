@@ -1,0 +1,17 @@
+@import "../../sass/utilities/variables";
+
+.footer-wrapper {
+  width: 100%;
+  color: $white;
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+  bottom: 0;
+  background: rgba(10, 50, 70, 0.9);
+}
+
+.footer {
+  width: auto;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+}

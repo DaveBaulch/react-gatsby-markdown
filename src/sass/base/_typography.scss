@@ -1,0 +1,147 @@
+body {
+  font-family: $font;
+  font-weight: $font-weight-normal;
+}
+
+// Generic heading styling
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+  margin-top: 2rem;
+  color: $color-headings;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 3rem;
+
+  @include breakpoint(lg) {
+    font-size: 3.2rem;
+  }
+}
+
+h2 {
+  font-size: 2.2rem;
+
+  @include breakpoint(lg) {
+    font-size: 2.4rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+
+  @include breakpoint(lg) {
+    font-size: 2.2rem;
+  }
+}
+
+h4 {
+  font-size: 1.8rem;
+
+  @include breakpoint(lg) {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  font-size: 1.6rem;
+
+  @include breakpoint(lg) {
+    font-size: 1.8rem;
+  }
+}
+
+// Link styles
+
+a {
+  color: $color-link-active;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: $color-link-visited;
+}
+
+a:hover {
+  color: $color-link-hover;
+}
+
+a:focus {
+  color: $color-link-hover;
+  outline: $focus-outline;
+}
+
+// Standard text paragraphs
+
+p {
+  margin: 2rem 0 0 0;
+  padding: 0;
+}
+
+// List styles
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &:not([class]) {
+    margin: 0 1.22rem 0.8rem 1.5rem;
+    list-style-position: inside;
+  }
+}
+
+ol:not([class]) {
+  list-style-type: decimal;
+}
+
+ul:not([class]) {
+  list-style-type: disc;
+}
+
+// Definition list styles
+
+dl {
+}
+
+dt {
+  font-weight: bold;
+}
+
+// Opinionated styling of typographic elements
+
+hr {
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  border-top: 1px solid $grey-light;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 10px;
+}
+
+ins {
+  background: $red;
+  color: $black;
+  text-decoration: none;
+}
+
+mark {
+  font-style: italic;
+  font-weight: bold;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

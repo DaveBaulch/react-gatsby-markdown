@@ -1,0 +1,196 @@
+// Fonts
+$font: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif; // Available weights 300,400,600
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// Default font sizes
+$base-font-size: 62.5%;
+$body-font-mobile: 1.6rem; // = 14px
+$body-font-desktop: 1.6rem; // = 16px
+
+// Globals
+$line-height: 1.5;
+
+// Dimensions
+$page-width: 100%;
+$page-height: auto;
+
+// Colors
+$white: #fff;
+$grey: #e0e9ee;
+$grey-light: #fafafa;
+$grey-mid: #999;
+$grey-dark: #4b5664;
+$light-grey: #fafafa;
+$dark-grey: #4b5664;
+$black: #000;
+$blue: #1e4273;
+$blue-light: #3a8abf;
+$blue-lighter: #00aeef;
+$blue-lightest: #e5eef5;
+$blue-pale: #f6fafc;
+$blue-dark: #002f6c; // all text and headings
+$blue-black: #080808;
+$cyan: #36d1dc;
+$cyan-dark: #5b86e5;
+$green: #8ef09b;
+$green-dark: #23c39e;
+$green-lime: #00a81a;
+$orange: #f9d423;
+$orange-dark: #f83600;
+$red: #dc5c36;
+$red-dark: #dc3689;
+$purple: #8287c3;
+$pink: #cba5bc;
+$yellow: #ff6;
+
+// Text colors
+$color-text: #0a3246;
+$color-headings: #0a3246;
+$color-error: #0a3246;
+
+// Link colors
+$color-link-active: #333;
+$color-link-visited: #333;
+$color-link-hover: #333;
+$color-link-focus: #333;
+$color-link-disabled: #d4d4d4;
+
+// Focus state styling
+$focus-outline-width: 2px;
+$focus-outline-style: solid;
+$focus-outline-color: $red;
+$focus-outline: $focus-outline-width $focus-outline-style $focus-outline-color;
+$focus-outline-offset: 0;
+
+// Nav
+$nav-dark-blue: $blue;
+$nav-light-blue: #43a2d8;
+
+// Bullets
+$bullet-dark-blue: $blue;
+$bullet-light-blue: #43a2d8;
+
+$bullet-dark-red: #dc3689;
+$bullet-light-red: #dc5c36;
+
+// Brand Colours
+$brand-white: $white;
+$brand-white-alt: $light-grey;
+$brand-black: $black;
+$brand-primary: $blue;
+$brand-primary-alt: $blue-light;
+$brand-dark: #0a3246;
+$brand-blue: #0a3246;
+$brand-dark-alt: $blue-black;
+$brand-lightest: $blue-lightest;
+$brand-light: $blue-lighter;
+$brand-light-alt: $blue-pale;
+
+// Background color variables
+.bg-white {
+  background-color: $brand-white;
+}
+
+.bg-white-alt {
+  background-color: $brand-white-alt;
+}
+
+.bg-black {
+  background-color: $brand-black;
+}
+
+.bg-primary {
+  background-color: $brand-primary;
+}
+
+.bg-primary-alt {
+  background-color: $brand-primary-alt;
+}
+
+.bg-dark {
+  background-color: $brand-dark;
+}
+
+.bg-dark-alt {
+  background-color: $brand-dark-alt;
+}
+
+.bg-light {
+  background-color: $brand-lightest;
+}
+
+.bg-light-alt {
+  background-color: $brand-light-alt;
+}
+
+// Font Sizes
+$font-largest: 3rem;
+$font-larger: 2.6rem;
+$font-large: 1.8rem;
+$font-small: 1.4rem;
+
+// Boxes
+$box-shadow-colour: lightgrey;
+$box-shadow: 0 5px 32px $box-shadow-colour;
+$border-radius: 10px;
+$overlay: rgba($black, 0.8);
+
+// Margin
+$margin: 24px;
+
+// Padding
+$padding: 12px;
+
+// Tables
+$th-dark-blue: $blue;
+$th-light-blue: #43a2d8;
+$td-blue: $blue-dark;
+$table-footer: #147fc7;
+
+// Breakpoints
+// -------------------------
+
+// Named breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$xs-min: 0;
+$xs-max: ($breakpoint-sm - 1);
+
+$sm-min: $breakpoint-sm;
+$sm-max: ($breakpoint-md - 1);
+
+$md-min: $breakpoint-md;
+$md-max: ($breakpoint-lg - 1);
+
+$lg-min: $breakpoint-lg;
+$lg-max: ($breakpoint-xl - 1);
+
+$xl-min: $breakpoint-xl;
+
+// Border colors
+$color-border: $grey-light;
+
+// Border styling
+$border-radius: 5px;
+$border-width: 1px;
+$border-style: solid;
+$border-color: $color-border;
+
+$border: $border-width $border-style $border-color;
+
+// Focus state styling
+$focus-outline-width: 1px;
+$focus-outline-style: solid;
+$focus-outline-color: $orange-dark;
+$focus-outline: $focus-outline-width $focus-outline-style $focus-outline-color;
+$focus-outline-offset: 0;
+
+//Error
+$color-error: $orange-dark;

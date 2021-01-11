@@ -1,0 +1,21 @@
+@import "../../sass/utilities/variables";
+
+.social-links-wrapper {
+  grid-column: 1 / 12;
+}
+
+.social-links-title {
+  color: $white;
+}
+
+.social-links {
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.social-links__item {
+  margin: 0 1rem 0 0;
+}

@@ -1,0 +1,42 @@
+// https://www.bram.us/2016/05/02/prevent-overscroll-bounce-in-ios-mobilesafari-pure-css/
+// Prevent iOS overflow scrolling
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-inner {
+  flex: 1 0 auto;
+}
+
+main {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem 0;
+
+  // ensure fullscreen elements are on top
+  .fullscreen & {
+    z-index: 1;
+  }
+
+  .home-page & {
+    padding-top: 50px;
+
+    @include breakpoint(sm) {
+      padding-top: 60px;
+    }
+
+    @include breakpoint(md) {
+      padding-top: 100px;
+    }
+  }
+}

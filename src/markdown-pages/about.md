@@ -1,0 +1,10 @@
+---
+date: "2020-01-01"
+title: "Work"
+---
+
+I have worked in web development for over twenty years delivering everything from HTML emails to market-leading e-commerce sites.
+
+I have spent the last ten years at twentysix working in front-end development delivering enterprise-level solutions based on EpiServer and Umbraco CMS.
+
+For more information please see the [Work](/work/) and [CV](/cv/) pages and my [linkedin](https://www.linkedin.com/in/dave-baulch-a159689/) profile.

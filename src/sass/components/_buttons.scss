@@ -1,0 +1,30 @@
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: inherit;
+  font-size: 100%;
+  cursor: pointer;
+  border: 1px solid $white;
+  margin: 0;
+  padding: 1.3rem 1.5rem;
+  background-color: $white;
+  color: $white;
+  font-weight: normal;
+  text-align: center;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
+  /* only remove default outline if alternative focus styling is provided
+  *  2.4.7 Focus Visible: Any keyboard operable user interface has a mode of operation where
+  *  the keyboard focus indicator is visible. (Level AA)
+  */
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
+  }
+}

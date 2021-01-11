@@ -1,0 +1,35 @@
+html {
+  //Prevent iOS input highlighting
+  box-sizing: border-box;
+  font-size: $base-font-size;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: $white;
+  color: $brand-dark;
+  font-size: $body-font-mobile;
+  line-height: $line-height;
+  text-align: left;
+
+  @include breakpoint(lg) {
+    font-size: $body-font-desktop;
+  }  
+}
+
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img {
+  display: block;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  // option to make images responsive by default
+  max-width: 100%;
+}

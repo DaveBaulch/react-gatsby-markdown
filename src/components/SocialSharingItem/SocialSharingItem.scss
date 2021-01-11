@@ -1,0 +1,22 @@
+@import "../../sass/utilities/variables";
+
+.social-sharing-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 44px;
+  color: $white;
+  text-decoration: none;
+  padding: 1rem;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.social-sharing-text {
+  margin-left: 1rem;
+}

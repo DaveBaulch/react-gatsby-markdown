@@ -1,0 +1,214 @@
+@import "../../sass/utilities/mixins";
+@import "../../sass/utilities/variables";
+
+.header-wrapper {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+
+  @include breakpoint(md) {
+    height: 300px;
+  }
+}
+
+.bg-img {
+  position: absolute;
+  width: 100vw;
+  height: 200px;
+  overflow: hidden;
+  top: 0;
+  z-index: -1;
+
+  @include breakpoint(md) {
+    height: 300px;
+  }
+}
+
+.gradient-overlay {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(
+    to left,
+    rgba(10, 50, 70, 0.1) 80%,
+    rgba(10, 50, 70, 0.4) 95%
+  );
+  display: block;
+
+  .about &,
+  .cv &,
+  .blog & {
+    background: linear-gradient(
+      to left,
+      rgba(10, 50, 70, 0.1) 10%,
+      rgba(10, 50, 70, 0.4) 90%
+    );
+    display: block;
+  }
+
+  @include breakpoint(md) {
+    height: 300px;
+  }
+}
+
+.header-img {
+  background-size: cover;
+  position: absolute;
+  width: 100vw;
+  height: 300px;
+  overflow-y: hidden;
+}
+
+.home-page .header-wrapper {
+  background: url("../../images/bg1-xs.jpg") no-repeat right center;
+  background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url("../../images/bg1-sm.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url("../../images/bg1-md.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url("../../images/bg1-lg.jpg") no-repeat right center;
+    background-size: cover;
+  }
+}
+
+.about-page .header-wrapper {
+  background: url("../../images/bg2-xs.jpg") no-repeat right center;
+  background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url("../../images/bg2-sm.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url("../../images/bg2-md.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url("../../images/bg2-lg.jpg") no-repeat right center;
+    background-size: cover;
+  }
+}
+
+.work-page .header-wrapper {
+  background: url("../../images/bg3-xs.jpg") no-repeat right center;
+  background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url("../../images/bg3-sm.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url("../../images/bg3-md.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url("../../images/bg3-lg.jpg") no-repeat right center;
+    background-size: cover;
+  }
+}
+
+.cv-page .header-wrapper {
+  background: url("../../images/bg4-xs.jpg") no-repeat right center;
+  background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url("../../images/bg4-sm.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url("../../images/bg4-md.jpg") no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url("../../images/bg4-lg.jpg") no-repeat right center;
+    background-size: cover;
+  }
+}
+
+// .bg-enter-active,
+// .bg-leave-active {
+//   transition: all 0.8s ease-in-out;
+// }
+
+// .bg-enter,
+// .bg-leave-to {
+//   transform: scale(1) translateZ(0);
+//   opacity: 0;
+// }
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.header {
+  width: 100%;
+  background: rgba(10, 50, 70, 0.75);
+  position: relative;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  @include breakpoint(md) {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+  }
+}
+
+.nav-button {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 44px;
+  width: 44px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid $white;
+  background-color: transparent;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
+  }
+}
+
+.nav-button .bar {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.app-links {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+}
