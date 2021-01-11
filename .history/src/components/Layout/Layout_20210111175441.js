@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         <div className="layout">
           <Header />
           {children}
-          <Contact />
+          {<Contact />
           <Footer />
         </div>
       </ContactStore>

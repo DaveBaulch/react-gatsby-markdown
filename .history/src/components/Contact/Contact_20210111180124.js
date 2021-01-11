@@ -4,12 +4,10 @@ import { useContext } from "react"
 import ContactContext from "../../contexts/ContactContext"
 
 const Contact = () => {
-  const { isContactActive } = useContext(ContactContext)
+  const { isContactActive, onContactActiveChange } = useContext(ContactContext)
 
-  if (isContactActive) {
-    return <div>Contact</div>
-  }
-
-  return null
+  return {
+    {isContact}
+  } 
 }
 export default Contact

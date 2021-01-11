@@ -6,10 +6,10 @@ import ContactContext from "../../contexts/ContactContext"
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
 
-  if (isContactActive) {
-    return <div>Contact</div>
+  return {
+    if(isNavActive) {
+      isContactActive && <div>Contact form goes here</div>
+    },
   }
-
-  return null
 }
 export default Contact

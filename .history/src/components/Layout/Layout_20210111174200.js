@@ -5,19 +5,16 @@ import Contact from "../Contact"
 import "./Layout.scss"
 import "../../sass/base-styles.scss"
 import { NavigationStore } from "../../contexts/NavigationContext"
-import { ContactStore } from "../../contexts/ContactContext"
 
 const Layout = ({ children }) => {
   return (
     <NavigationStore>
-      <ContactStore>
-        <div className="layout">
-          <Header />
-          {children}
-          <Contact />
-          <Footer />
-        </div>
-      </ContactStore>
+      <div className="layout">
+        <Header />
+        {children}
+        <Contact />
+        <Footer />
+      </div>
     </NavigationStore>
   )
 }

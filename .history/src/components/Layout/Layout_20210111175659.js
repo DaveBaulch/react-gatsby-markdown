@@ -6,15 +6,19 @@ import "./Layout.scss"
 import "../../sass/base-styles.scss"
 import { NavigationStore } from "../../contexts/NavigationContext"
 import { ContactStore } from "../../contexts/ContactContext"
+import { useEffect, useRef, useContext } from "react"
+import ContactContext from "../../contexts/NavigationContext"
 
 const Layout = ({ children }) => {
+  const { isContactActive } = useContext(ContactContext)
+
   return (
     <NavigationStore>
       <ContactStore>
         <div className="layout">
           <Header />
           {children}
-          <Contact />
+          {isContactActive && <Contact />}
           <Footer />
         </div>
       </ContactStore>

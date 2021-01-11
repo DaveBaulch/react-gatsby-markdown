@@ -8,13 +8,15 @@ import { NavigationStore } from "../../contexts/NavigationContext"
 import { ContactStore } from "../../contexts/ContactContext"
 
 const Layout = ({ children }) => {
+  const { isNavActive, onNavActiveChange } = useContext(NavigationContext)
+  
   return (
     <NavigationStore>
       <ContactStore>
         <div className="layout">
           <Header />
           {children}
-          <Contact />
+          {isContactActive && <Contact />}
           <Footer />
         </div>
       </ContactStore>

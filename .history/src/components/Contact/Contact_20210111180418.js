@@ -9,7 +9,5 @@ const Contact = () => {
   if (isContactActive) {
     return <div>Contact</div>
   }
-
-  return null
 }
 export default Contact

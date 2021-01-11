@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
           <Contact />
           <Footer />
         </div>
-      </ContactStore>
+      <ContactStore />
     </NavigationStore>
   )
 }
