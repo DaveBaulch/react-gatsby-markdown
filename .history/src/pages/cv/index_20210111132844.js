@@ -15,7 +15,7 @@ const md = ({ data }) => {
 
       <div>
         {data.allMarkdownRemark.edges.slice(1).map(edge => {
-          return <CvArticle edge={edge} />
+          return <CVArticle edge={edge} />
         })}
       </div>
     </>
@@ -45,9 +45,12 @@ export const query = graphql`
         node {
           html
           frontmatter {
-            role
-            company
-            dates
+            title
+            date
+            year
+            image
+            button
+            url
           }
         }
       }

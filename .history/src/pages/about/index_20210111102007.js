@@ -17,7 +17,7 @@ const md = data => {
 const About = ({ data }) => (
   <Layout>
     <Helmet bodyAttributes={{ class: "about-page" }}>
-      <title>About Page</title>
+      <title>Index Page</title>
     </Helmet>
     <main>
       <div class="container">

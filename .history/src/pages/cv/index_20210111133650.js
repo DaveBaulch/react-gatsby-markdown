@@ -45,9 +45,12 @@ export const query = graphql`
         node {
           html
           frontmatter {
-            role
-            company
-            dates
+            title
+            date
+            year
+            image
+            button
+            url
           }
         }
       }

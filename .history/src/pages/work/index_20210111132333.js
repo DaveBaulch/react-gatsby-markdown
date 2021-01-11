@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import CvArticle from "../../components/CvArticle"
+import WorkArticle from "../../components/WorkArticle"
 
 const md = ({ data }) => {
   return (
@@ -14,18 +14,18 @@ const md = ({ data }) => {
       />
 
       <div>
-        {data.allMarkdownRemark.edges.slice(1).map(edge => {
-          return <CvArticle edge={edge} />
+        {data.allMarkdownRemark.edges.slice(2).map(edge => {
+          return <WorkArticle edge={edge} />
         })}
       </div>
     </>
   )
 }
 
-const Cv = ({ data }) => (
+const Work = ({ data }) => (
   <Layout>
-    <Helmet bodyAttributes={{ class: "cv-page" }}>
-      <title>CV Page</title>
+    <Helmet bodyAttributes={{ class: "work-page" }}>
+      <title>Work Page</title>
     </Helmet>
     <main>
       <div class="container">
@@ -38,16 +38,19 @@ const Cv = ({ data }) => (
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/cv/" } }
+      filter: { fileAbsolutePath: { regex: "/work/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           html
           frontmatter {
-            role
-            company
-            dates
+            title
+            date
+            year
+            image
+            button
+            url
           }
         }
       }
@@ -55,4 +58,4 @@ export const query = graphql`
   }
 `
 
-export default Cv
+export default Work

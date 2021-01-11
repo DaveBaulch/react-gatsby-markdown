@@ -47,7 +47,7 @@ export const query = graphql`
           frontmatter {
             role
             company
-            dates
+            date
           }
         }
       }

@@ -1,0 +1,8 @@
+---
+date: "2020-01-01"
+title: "Work"
+---
+
+Here's a little look back at just a few of the projects I've worked on over the last ten years.
+
+Thanks to webarchive.org for archiving so much of web history!
