@@ -79,10 +79,10 @@ const Contact = () => {
     alert("submit form")
 
     const form = {
-      name: name,
-      email: email,
-      phone: phone,
-      message: message,
+      name: "test name",
+      email: "test email",
+      phone: "test phone",
+      message: "test message",
     }
 
     const axiosConfig = {
@@ -104,6 +104,8 @@ const Contact = () => {
       .catch(function (response) {
         // handle error
         alert("fail" + response)
+        // self.$store.dispatch("contact/formError", true)
+        // self.clearForm()
       })
   }
 
@@ -112,6 +114,7 @@ const Contact = () => {
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
+
     //alert(e.target.name)
   }
 

@@ -112,6 +112,7 @@ const Contact = () => {
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
+
     //alert(e.target.name)
   }
 

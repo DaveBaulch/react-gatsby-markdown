@@ -79,10 +79,10 @@ const Contact = () => {
     alert("submit form")
 
     const form = {
-      name: name,
-      email: email,
-      phone: phone,
-      message: message,
+      name: "test name",
+      email: "test email",
+      phone: "test phone",
+      message: "test message",
     }
 
     const axiosConfig = {
@@ -112,6 +112,7 @@ const Contact = () => {
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
+
     //alert(e.target.name)
   }
 

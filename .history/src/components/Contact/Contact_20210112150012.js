@@ -82,7 +82,7 @@ const Contact = () => {
       name: name,
       email: email,
       phone: phone,
-      message: message,
+      message: message",
     }
 
     const axiosConfig = {
@@ -112,6 +112,7 @@ const Contact = () => {
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
+
     //alert(e.target.name)
   }
 
