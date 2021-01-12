@@ -141,12 +141,12 @@ const Contact = () => {
       setEmail("")
       setPhone("")
       setMessage("")
-      setFormSuccess(false)
-      setFormFail(false)
+      // setFormSuccess(false)
+      // setFormFail(false)
     }
     setTimeout(function () {
       clearErrors()
-    }, 1000)
+    }, 3000)
   }, [isContactActive])
 
   return (

@@ -133,10 +133,10 @@ const Contact = () => {
 
   useEffect(() => {
     function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
+      // setNameError(null)
+      // setEmailError(null)
+      // setPhoneError(null)
+      // setMessageError(null)
       setName("")
       setEmail("")
       setPhone("")
@@ -146,7 +146,7 @@ const Contact = () => {
     }
     setTimeout(function () {
       clearErrors()
-    }, 1000)
+    }, 3000)
   }, [isContactActive])
 
   return (

@@ -65,18 +65,22 @@ const Contact = () => {
 
     if (message === "") {
       setMessageError("Please add your message")
-      hasPhoneError = true
+      hasMessageError = true
     } else {
       setMessageError(null)
       hasMessageError = false
     }
 
-    if (hasNameError || hasEmailError || hasPhoneError || hasMessageError) {
+    if (hasError) {
       setDisabled(true)
       console.log("errors")
     } else {
       setDisabled(false)
       console.log("no errors")
+      console.log(name)
+      console.log(email)
+      console.log(phone)
+      console.log(message)
       submitForm()
     }
   }
@@ -144,9 +148,7 @@ const Contact = () => {
       setFormSuccess(false)
       setFormFail(false)
     }
-    setTimeout(function () {
-      clearErrors()
-    }, 1000)
+    clearErrors()
   }, [isContactActive])
 
   return (
@@ -218,7 +220,7 @@ const Contact = () => {
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
-                  {emailError && <span className="error">{emailError}</span>}
+                  {emailError && <span className="error">{nameError}</span>}
                 </div>
 
                 <div

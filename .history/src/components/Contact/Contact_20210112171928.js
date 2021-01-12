@@ -146,7 +146,7 @@ const Contact = () => {
     }
     setTimeout(function () {
       clearErrors()
-    }, 1000)
+    }, 3000)
   }, [isContactActive])
 
   return (

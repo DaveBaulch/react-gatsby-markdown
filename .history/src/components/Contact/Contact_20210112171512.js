@@ -144,9 +144,7 @@ const Contact = () => {
       setFormSuccess(false)
       setFormFail(false)
     }
-    setTimeout(function () {
-      clearErrors()
-    }, 1000)
+    clearErrors()
   }, [isContactActive])
 
   return (
@@ -218,7 +216,7 @@ const Contact = () => {
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
-                  {emailError && <span className="error">{emailError}</span>}
+                  {emailError && <span className="error">{nameError}</span>}
                 </div>
 
                 <div

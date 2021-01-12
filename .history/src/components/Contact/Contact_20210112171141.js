@@ -39,44 +39,48 @@ const Contact = () => {
     let hasNameError = true
     let hasEmailError = true
     let hasPhoneError = true
-    let hasMessageError = true
+    let hasNameError = true
 
     if (name === "") {
       setNameError("Please add your name")
-      hasNameError = true
+      hasError = true
     } else {
-      hasNameError = false
+      hasError = false
     }
 
     if (email === "") {
       setEmailError("Please add a valid email address")
-      hasEmailError = true
+      hasError = true
     } else {
-      hasEmailError = false
+      hasError = false
     }
 
     if (phone === "") {
       setPhoneError("Please add a phone number")
-      hasPhoneError = true
+      hasError = true
     } else {
       setPhoneError(null)
-      hasPhoneError = false
+      hasError = false
     }
 
     if (message === "") {
       setMessageError("Please add your message")
-      hasPhoneError = true
+      hasError = true
     } else {
       setMessageError(null)
-      hasMessageError = false
+      hasError = false
     }
 
-    if (hasNameError || hasEmailError || hasPhoneError || hasMessageError) {
+    if (hasError) {
       setDisabled(true)
       console.log("errors")
     } else {
       setDisabled(false)
       console.log("no errors")
+      console.log(name)
+      console.log(email)
+      console.log(phone)
+      console.log(message)
       submitForm()
     }
   }
@@ -144,9 +148,7 @@ const Contact = () => {
       setFormSuccess(false)
       setFormFail(false)
     }
-    setTimeout(function () {
-      clearErrors()
-    }, 1000)
+    clearErrors()
   }, [isContactActive])
 
   return (
@@ -218,7 +220,7 @@ const Contact = () => {
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
-                  {emailError && <span className="error">{emailError}</span>}
+                  {emailError && <span className="error">{nameError}</span>}
                 </div>
 
                 <div

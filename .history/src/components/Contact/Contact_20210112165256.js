@@ -36,53 +36,50 @@ const Contact = () => {
   // run any validation here
   const formValidation = () => {
     console.log("validate")
-    let hasNameError = true
-    let hasEmailError = true
-    let hasPhoneError = true
-    let hasMessageError = true
+    let hasError = true
 
     if (name === "") {
       setNameError("Please add your name")
-      hasNameError = true
+      hasError = true
     } else {
-      hasNameError = false
+      hasError = false
     }
 
     if (email === "") {
       setEmailError("Please add a valid email address")
-      hasEmailError = true
+      hasError = true
     } else {
-      hasEmailError = false
+      hasError = false
     }
 
     if (phone === "") {
       setPhoneError("Please add a phone number")
-      hasPhoneError = true
+      hasError = true
     } else {
       setPhoneError(null)
-      hasPhoneError = false
+      hasError = false
     }
 
     if (message === "") {
       setMessageError("Please add your message")
-      hasPhoneError = true
+      hasError = true
     } else {
       setMessageError(null)
-      hasMessageError = false
+      hasError = false
     }
 
-    if (hasNameError || hasEmailError || hasPhoneError || hasMessageError) {
+    if (hasError) {
       setDisabled(true)
-      console.log("errors")
+      // console.log("errors")
     } else {
       setDisabled(false)
-      console.log("no errors")
+      // console.log("no errors")
       submitForm()
     }
   }
 
   const submitForm = () => {
-    console.log("submit form")
+    //console.log("submit form")
 
     const form = {
       name: name,
@@ -116,10 +113,14 @@ const Contact = () => {
   }
 
   const clearErrors = () => {
+    
+    setName("")
     setNameError(null)
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
+    setFormSuccess(false)
+    setFormFail(false)
   }
 
   const onBlur = event => {
@@ -137,16 +138,10 @@ const Contact = () => {
       setEmailError(null)
       setPhoneError(null)
       setMessageError(null)
-      setName("")
-      setEmail("")
-      setPhone("")
-      setMessage("")
       setFormSuccess(false)
       setFormFail(false)
     }
-    setTimeout(function () {
-      clearErrors()
-    }, 1000)
+    clearErrors()
   }, [isContactActive])
 
   return (
@@ -218,7 +213,7 @@ const Contact = () => {
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
-                  {emailError && <span className="error">{emailError}</span>}
+                  {emailError && <span className="error">{nameError}</span>}
                 </div>
 
                 <div
