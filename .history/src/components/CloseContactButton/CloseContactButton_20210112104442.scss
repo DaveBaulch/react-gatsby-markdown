@@ -1,0 +1,27 @@
+@import "../../sass/utilities/variables";
+@import "../../sass/utilities/mixins";
+
+.close-contactbutton {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 2000;
+  background: transparent
+    url("-~assets/layout/icon-mobile-menu-close-white.svg") no-repeat center
+    center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  @include breakpoint(sm) {
+    right: 25px;
+  }
+
+  .contact-wrapper.visible & {
+    opacity: 1;
+  }
+}

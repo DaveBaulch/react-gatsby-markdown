@@ -1,0 +1,68 @@
+@import "../../sass/utilities/variables";
+@import "../../sass/utilities/mixins";
+
+.sidenav-container {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.sidenav-backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: -100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+
+  .nav-active & {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.sidenav-wrapper {
+  width: 100%;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-out;
+  background: rgba(10, 50, 70, 0.5);
+  padding: 0;
+}
+
+.nav-active .sidenav-wrapper {
+  transform: translateX(0);
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.sidenav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav-list__item {
+  margin: 1rem 0 0 0;
+  padding: 0;
+}
+
+.sidenav-list__link {
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}

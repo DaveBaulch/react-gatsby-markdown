@@ -1,0 +1,46 @@
+@import "../../sass/utilities/variables";
+@import "../../sass/utilities/mixins";
+
+.drawer-close {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  border: 1px solid $white;
+  background-color: transparent;
+
+  &:focus {
+    outline: 2px solid $red;
+  }
+}
+
+// @media (min-width: 768px) {
+//   .drawer-close {
+//     display: none;
+//   }
+// }
+
+.drawer-close .bar {
+  width: 30px;
+  height: 2px;
+  background-color: $white !important;
+  position: relative;
+  margin: 0;
+}
+
+.drawer-close .bar:nth-child(1) {
+  transform: rotate(-45deg);
+  left: -1px;
+  top: 1px;
+}
+
+.drawer-close .bar:nth-child(2) {
+  transform: rotate(45deg);
+  left: -1px;
+  top: 0;
+}
