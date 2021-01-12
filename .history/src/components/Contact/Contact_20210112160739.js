@@ -142,10 +142,6 @@ const Contact = () => {
     clearErrors()
   }, [isContactActive])
 
-  if (!isContactActive) {
-    return <div></div>
-  }
-
   return (
     <div
       id="contact"

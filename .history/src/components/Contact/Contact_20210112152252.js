@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useState, useRef, useEffect } from "react"
+import { useContext, useState, useRef } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
@@ -33,7 +33,7 @@ const Contact = () => {
   const [phoneError, setPhoneError] = useState(null)
   const [messageError, setMessageError] = useState(null)
 
-  // run any validation here
+  // here we run any validation, returning true/false
   const formValidation = () => {
     console.log("validate")
     let hasError = true
@@ -112,38 +112,21 @@ const Contact = () => {
       })
   }
 
-  const clearErrors = () => {
+  const clearErrors = e => {
     setNameError(null)
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
-    setFormSuccess(false)
-    setFormFail(false)
+    //alert(e.target.name)
   }
 
-  const onBlur = event => {
-    //alert(event.target.name)
+  const onBlur = e => {
+    //alert(e.target.name)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
     formValidation()
-  }
-
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
   }
 
   return (
@@ -273,7 +256,7 @@ const Contact = () => {
               <h2>Thank you!</h2>
               <p>
                 Thanks for getting in touch - if you have any further questions
-                please email:
+                please email:{" "}
                 <a href="mailto: davebaulch@yahoo.co.uk">
                   davebaulch@yahoo.co.uk
                 </a>
@@ -286,7 +269,7 @@ const Contact = () => {
               <h2>Oh no!</h2>
               <p>
                 It looks like something went wrong - please email me directly
-                at:
+                at:{" "}
                 <a href="mailto: davebaulch@yahoo.co.uk">
                   davebaulch@yahoo.co.uk
                 </a>

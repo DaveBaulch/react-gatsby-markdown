@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useState, useRef, useEffect } from "react"
+import { useContext, useState, useRef } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
@@ -119,6 +119,7 @@ const Contact = () => {
     setMessageError(null)
     setFormSuccess(false)
     setFormFail(false)
+    //alert(e.target.name)
   }
 
   const onBlur = event => {
@@ -130,22 +131,6 @@ const Contact = () => {
     formValidation()
   }
 
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
-
   return (
     <div
       id="contact"
@@ -155,7 +140,7 @@ const Contact = () => {
       aria-hidden={!isContactActive}
     >
       <div className="contact-inner">
-        <CloseContactButton />
+        <CloseContactButton onClick={alert("help")} />
 
         <div className="left-col">
           <h1>It would be great to hear from you!</h1>

@@ -130,21 +130,17 @@ const Contact = () => {
     formValidation()
   }
 
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
+  seEffect(() => {
+    function handleStatusChange(status) {
+          setNameError(null)
+          setEmailError(null)
+          setPhoneError(null)
+          setMessageError(null)
+          setFormSuccess(false)
+          setFormFail(false)
     }
-    clearErrors()
-  }, [isContactActive])
 
-  if (!isContactActive) {
-    return <div></div>
-  }
+  }, []) // Only re-subscribe if props.friend.id changes
 
   return (
     <div

@@ -23,7 +23,7 @@ const Header = () => (
         </AniLink>
       </li>
       <li className="nav__item">
-        <AniLink fade to="/cv" className="nav__link">
+        <AniLink fade to="/cv" className="nav__link js-nav-focussable">
           CV
         </AniLink>
       </li>

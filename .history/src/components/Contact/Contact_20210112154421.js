@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useState, useRef, useEffect } from "react"
+import { useContext, useState, useRef } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
@@ -128,22 +128,6 @@ const Contact = () => {
   const handleSubmit = event => {
     event.preventDefault()
     formValidation()
-  }
-
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
   }
 
   return (

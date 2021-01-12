@@ -131,6 +131,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
+    a; lert('here');
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
@@ -139,12 +140,8 @@ const Contact = () => {
       setFormSuccess(false)
       setFormFail(false)
     }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
+    clearErrors
+  }, []) // Only re-subscribe if props.friend.id changes
 
   return (
     <div

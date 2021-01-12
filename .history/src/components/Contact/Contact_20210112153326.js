@@ -112,38 +112,23 @@ const Contact = () => {
       })
   }
 
-  const clearErrors = () => {
+  const clearErrors = e => {
     setNameError(null)
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
     setFormSuccess(false)
     setFormFail(false)
+    //alert(e.target.name)
   }
 
-  const onBlur = event => {
-    //alert(event.target.name)
+  const onBlur = e => {
+    //alert(e.target.name)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
     formValidation()
-  }
-
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
   }
 
   return (
@@ -155,7 +140,7 @@ const Contact = () => {
       aria-hidden={!isContactActive}
     >
       <div className="contact-inner">
-        <CloseContactButton />
+        <CloseContactButton onClick/>
 
         <div className="left-col">
           <h1>It would be great to hear from you!</h1>

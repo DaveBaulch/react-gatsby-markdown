@@ -131,6 +131,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
+    alert("here")
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
@@ -140,10 +141,9 @@ const Contact = () => {
       setFormFail(false)
     }
     clearErrors()
-  }, [isContactActive])
+  }, [])
 
   if (!isContactActive) {
-    return <div></div>
   }
 
   return (
@@ -272,8 +272,8 @@ const Contact = () => {
             <div className="success-block">
               <h2>Thank you!</h2>
               <p>
-                Thanks for getting in touch - if you have any further questions
-                please email:
+                Thanks for getting in touch - if you have any further
+                questions please email:
                 <a href="mailto: davebaulch@yahoo.co.uk">
                   davebaulch@yahoo.co.uk
                 </a>
@@ -297,5 +297,6 @@ const Contact = () => {
       </div>
     </div>
   )
+  
 }
 export default Contact

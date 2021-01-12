@@ -151,29 +151,19 @@
 }
 
 .success-block {
-  margin: 60px 0 0 0;
-  text-align: center;
-
   * {
     color: $white;
-  }
-
-  @include breakpoint(md) {
-    margin: 0;
   }
 }
 
 .error-block {
-  margin: 60px 0 0 0;
-  text-align: center;
-
   * {
     color: $white;
   }
 
-  @include breakpoint(md) {
-    margin: 0;
-  }
+  // &.visible {
+  //   display: none;
+  // }
 }
 
 .contact-form {

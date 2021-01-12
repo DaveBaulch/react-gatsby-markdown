@@ -157,10 +157,6 @@
   * {
     color: $white;
   }
-
-  @include breakpoint(md) {
-    margin: 0;
-  }
 }
 
 .error-block {
@@ -172,7 +168,6 @@
   }
 
   @include breakpoint(md) {
-    margin: 0;
   }
 }
 

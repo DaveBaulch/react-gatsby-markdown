@@ -139,12 +139,8 @@ const Contact = () => {
       setFormSuccess(false)
       setFormFail(false)
     }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
+    clearErrors
+  }, []) // Only re-subscribe if props.friend.id changes
 
   return (
     <div

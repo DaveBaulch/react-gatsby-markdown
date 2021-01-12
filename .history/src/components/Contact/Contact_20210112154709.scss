@@ -151,28 +151,20 @@
 }
 
 .success-block {
-  margin: 60px 0 0 0;
+  margin: 40px 0 0 0;
   text-align: center;
 
   * {
     color: $white;
-  }
-
-  @include breakpoint(md) {
-    margin: 0;
   }
 }
 
 .error-block {
-  margin: 60px 0 0 0;
+  margin: 40px 0 0 0;
   text-align: center;
 
   * {
     color: $white;
-  }
-
-  @include breakpoint(md) {
-    margin: 0;
   }
 }
 

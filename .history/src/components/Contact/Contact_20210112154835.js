@@ -130,22 +130,6 @@ const Contact = () => {
     formValidation()
   }
 
-  useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
-
   return (
     <div
       id="contact"

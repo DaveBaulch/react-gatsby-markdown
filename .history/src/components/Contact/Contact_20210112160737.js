@@ -131,6 +131,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
+    alert("here")
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
@@ -141,10 +142,6 @@ const Contact = () => {
     }
     clearErrors()
   }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
 
   return (
     <div

@@ -131,6 +131,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
+    alert("here")
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
@@ -140,10 +141,10 @@ const Contact = () => {
       setFormFail(false)
     }
     clearErrors()
-  }, [isContactActive])
+  }, [])
 
   if (!isContactActive) {
-    return <div></div>
+    treturn
   }
 
   return (

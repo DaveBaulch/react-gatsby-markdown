@@ -131,6 +131,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
+    alert("here")
     function clearErrors() {
       setNameError(null)
       setEmailError(null)

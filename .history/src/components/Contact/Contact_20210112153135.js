@@ -112,17 +112,16 @@ const Contact = () => {
       })
   }
 
-  const clearErrors = () => {
+  const clearErrors = e => {
     setNameError(null)
     setEmailError(null)
     setPhoneError(null)
     setMessageError(null)
-    setFormSuccess(false)
-    setFormFail(false)
+    //alert(e.target.name)
   }
 
-  const onBlur = event => {
-    //alert(event.target.name)
+  const onBlur = e => {
+    //alert(e.target.name)
   }
 
   const handleSubmit = event => {
@@ -131,20 +130,13 @@ const Contact = () => {
   }
 
   useEffect(() => {
-    function clearErrors() {
-      setNameError(null)
-      setEmailError(null)
-      setPhoneError(null)
-      setMessageError(null)
-      setFormSuccess(false)
-      setFormFail(false)
-    }
-    clearErrors()
-  }, [isContactActive])
-
-  if (!isContactActive) {
-    return <div></div>
-  }
+    setNameError(null)
+    setEmailError(null)
+    setPhoneError(null)
+    setMessageError(null)
+    setFormSuccess(false)
+    setFormFail(false)
+  }, [])
 
   return (
     <div
