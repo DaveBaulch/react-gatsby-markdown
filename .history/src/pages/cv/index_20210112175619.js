@@ -46,7 +46,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/cv/" } }
-      sort: { fields: [frontmatter___year], order: DESC }
+      sort: { fields: [frontmatter___d], order: DESC }
     ) {
       edges {
         node {
