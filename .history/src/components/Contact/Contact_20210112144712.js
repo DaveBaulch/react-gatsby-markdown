@@ -1,6 +1,5 @@
 import React from "react"
 import axios from "axios"
-import * as qs from "query-string"
 import { useContext, useState, useRef } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
@@ -91,7 +90,7 @@ const Contact = () => {
     axios
       .post(
         "/",
-        qs.stringify({
+        encode({
           "form-name": "contact",
           ...form,
         }),

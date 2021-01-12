@@ -86,12 +86,12 @@ const Contact = () => {
     }
 
     const axiosConfig = {
-      header: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
     }
     axios
       .post(
         "/",
-        qs.stringify({
+        encode({
           "form-name": "contact",
           ...form,
         }),
