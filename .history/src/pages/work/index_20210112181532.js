@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import CvArticle from "../../components/CvArticle"
+import WorkArticle from "../../components/WorkArticle"
 
 const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
@@ -17,10 +17,10 @@ const md = ({ data }) => {
       />
 
       <div>
-        {data.allMarkdownRemark.edges.map((edge, index) => {
+        {data.allMarkdownRemark.edges.slice(1).map((edge, index) => {
           return (
-            <div data-sal="fade" key={`cv-${index}`}>
-              <CvArticle edge={edge} />
+            <div data-sal="fade" key={`work-${index}`}>
+              <WorkArticle edge={edge} />
             </div>
           )
         })}
@@ -29,10 +29,10 @@ const md = ({ data }) => {
   )
 }
 
-const Cv = ({ data }) => (
+const Work = ({ data }) => (
   <Layout>
-    <Helmet bodyAttributes={{ class: "cv-page" }}>
-      <title>CV Page</title>
+    <Helmet bodyAttributes={{ class: "work-page" }}>
+      <title>Work Page</title>
     </Helmet>
     <main>
       <div className="container">
@@ -45,19 +45,19 @@ const Cv = ({ data }) => (
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/cv/" } }
+      filter: { fileAbsolutePath: { regex: "/work/" } }
       sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {
           html
           frontmatter {
-            year
             date
             title
-            role
-            company
-            dates
+            year
+            image
+            button
+            url
           }
         }
       }
@@ -65,4 +65,4 @@ export const query = graphql`
   }
 `
 
-export default Cv
+export default Work
