@@ -17,10 +17,7 @@
   transition: opacity 0.5s ease-in-out;
   border: 1px solid $white;
 
-  &:focus {
-    outline: 0;
-    border: $focus-outline !important;
-  }
+  
 
   @include breakpoint(sm) {
     right: 25px;

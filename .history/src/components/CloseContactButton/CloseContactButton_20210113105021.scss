@@ -18,8 +18,7 @@
   border: 1px solid $white;
 
   &:focus {
-    outline: 0;
-    border: $focus-outline !important;
+    border: 1px solid 
   }
 
   @include breakpoint(sm) {

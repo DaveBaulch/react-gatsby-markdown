@@ -19,7 +19,7 @@
 
   &:focus {
     outline: 0;
-    border: $focus-outline !important;
+    border: 1px solid $focus-outline !important;
   }
 
   @include breakpoint(sm) {
