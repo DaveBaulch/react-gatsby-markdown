@@ -9,7 +9,7 @@ const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   // on netlify the order of the array is reversed?
-  let sortedData = data.allMarkdownRemark.edges
+  let sortedData = data.allMarkdownRemark.edges.slice(1)
   console.log(sortedData)
   if (
     Number(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
@@ -20,7 +20,7 @@ const md = ({ data }) => {
 
   console.log(sortedData)
 
-  const renderedList = sortedData.slice(1).map((edge, index) => {
+  const renderedList = sortedData.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
     return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
   })
