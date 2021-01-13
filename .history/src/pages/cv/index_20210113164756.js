@@ -2,13 +2,12 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import WorkArticle from "../../components/WorkArticle"
+import CvArticle from "../../components/CvArticle"
 
 const md = ({ data }) => {
   console.log(data)
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
-  // on netlify the order of the array is reversed?
   let sortedData = data.allMarkdownRemark.edges.slice(1)
   if (
     parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
@@ -21,7 +20,7 @@ const md = ({ data }) => {
 
   const renderedList = sortedData.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
-    return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
+    return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
   })
   return (
     <>
@@ -31,15 +30,16 @@ const md = ({ data }) => {
           __html: html,
         }}
       />
+
       {renderedList}
     </>
   )
 }
 
-const Work = ({ data }) => (
+const Cv = ({ data }) => (
   <Layout>
-    <Helmet bodyAttributes={{ class: "work-page" }}>
-      <title>Work Page</title>
+    <Helmet bodyAttributes={{ class: "cv-page" }}>
+      <title>CV Page</title>
     </Helmet>
     <main>
       <div className="container">
@@ -52,19 +52,19 @@ const Work = ({ data }) => (
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/work/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/cv/" } }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {
           html
           frontmatter {
+            year
             date
             title
-            year
-            image
-            url
-            button
+            role
+            company
+            dates
           }
         }
       }
@@ -72,4 +72,4 @@ export const query = graphql`
   }
 `
 
-export default Work
+export default Cv

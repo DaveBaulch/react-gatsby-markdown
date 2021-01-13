@@ -8,7 +8,6 @@ const md = ({ data }) => {
   console.log(data)
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
-  // on netlify the order of the array is reversed?
   let sortedData = data.allMarkdownRemark.edges.slice(1)
   if (
     parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
