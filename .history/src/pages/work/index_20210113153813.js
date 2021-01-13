@@ -10,7 +10,7 @@ const md = ({ data }) => {
   const renderedList = data.allMarkdownRemark.edges
     .slice(1)
     .map((edge, index) => {
-      console.log(edge.node.frontmatter.title)
+      econsole.log(edge.node.frontmatter.title)
       return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
     })
 
