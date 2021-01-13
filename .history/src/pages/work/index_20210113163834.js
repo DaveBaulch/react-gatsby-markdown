@@ -9,14 +9,10 @@ const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   let sortedData = data.allMarkdownRemark.edges
-  if (
-    parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
-    parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year)
-  ) {
-    sortedData.reverse()
+  if (parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) < parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year) {
+    sortedDatar
   }
 
-  console.log(sortedData)
   const renderedList = data.allMarkdownRemark.edges.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
     return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />

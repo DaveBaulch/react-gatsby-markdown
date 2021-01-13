@@ -19,7 +19,7 @@ const md = ({ data }) => {
   console.log(sortedData)
   const renderedList = data.allMarkdownRemark.edges.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
-    return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
+    return <WorkArtcle data-sal="fade" edge={edge} key={`work-${index}`} />
   })
   return (
     <>

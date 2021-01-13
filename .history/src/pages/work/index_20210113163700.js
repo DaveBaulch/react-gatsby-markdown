@@ -7,20 +7,14 @@ import WorkArticle from "../../components/WorkArticle"
 const md = ({ data }) => {
   console.log(data)
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
+parseInt()
+  if (parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) < parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year
 
-  let sortedData = data.allMarkdownRemark.edges
-  if (
-    parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
-    parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year)
-  ) {
-    sortedData.reverse()
-  }
-
-  console.log(sortedData)
   const renderedList = data.allMarkdownRemark.edges.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
     return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
   })
+
   return (
     <>
       <h1 className="page-title">{frontmatter.title}</h1>
