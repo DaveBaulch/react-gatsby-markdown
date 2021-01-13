@@ -54,8 +54,8 @@ export const query = graphql`
             title
             year
             image
-            url
             button
+            url
           }
         }
       }
