@@ -17,7 +17,6 @@ const md = ({ data }) => {
   }
 
   console.log(sortedData)
-
   const renderedList = sortedData.slice(1).map((edge, index) => {
     console.log(edge.node.frontmatter.title)
     return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
