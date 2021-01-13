@@ -243,6 +243,7 @@ const Contact = () => {
                     onChange={e => setMessage(e.target.value)}
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
+                    ref={messageRef}
                   />
                   {messageError && (
                     <span className="error">{messageError}</span>

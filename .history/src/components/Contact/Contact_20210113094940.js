@@ -9,10 +9,14 @@ import CloseContactButton from "../CloseContactButton"
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
 
+  const nameWrapperRef = useRef()
+  const emailWrapperRef = useRef()
+  const phoneWrapperRef = useRef()
+  const messageWrapperRef = useRef()
+
   // set a state variable which can be used to disable the save/submit button
   // we set it to true so that the form is disabled on first render
   const [disabled, setDisabled] = useState(true)
-  const [hasFocus, setHasFocus] = useState(null)
 
   //  field values
   const [name, setName] = useState("")
@@ -103,17 +107,14 @@ const Contact = () => {
       })
   }
 
-  const clearErrors = event => {
+  const clearErrors = () => {
     setNameError(null)
     setEmailError(null)
     setMessageError(null)
-    setHasFocus(event.target.name)
-    //console.log(hasFocus)
   }
 
   const onBlur = event => {
-    // console.log(event.target.name)
-    setHasFocus(null)
+    //alert(event.target.name)
   }
 
   const handleSubmit = event => {
@@ -171,10 +172,10 @@ const Contact = () => {
               >
                 <input type="hidden" name="form-name" value="contact" />
                 <div
-                  className={`contact-form-item 
-                  ${nameError ? "has-error" : ""}
-                  ${hasFocus === "name" ? "has-focus" : ""}
-                  `}
+                  className={`contact-form-item ${
+                    nameError ? "has-error" : ""
+                  }`}
+                  ref={nameWrapperRef}
                 >
                   <label htmlFor="name">Name*</label>
                   <input
@@ -191,10 +192,10 @@ const Contact = () => {
                 </div>
 
                 <div
-                  className={`contact-form-item 
-                  ${emailError ? "has-error" : ""}
-                  ${hasFocus === "email" ? "has-focus" : ""}
-                  `}
+                  className={`contact-form-item ${
+                    emailError ? "has-error" : ""
+                  }`}
+                  ref={emailWrapperRef}
                 >
                   <label htmlFor="email">Email address*</label>
                   <input
@@ -210,11 +211,7 @@ const Contact = () => {
                   {emailError && <span className="error">{emailError}</span>}
                 </div>
 
-                <div
-                  className={`contact-form-item
-                ${hasFocus === "phone" ? "has-focus" : ""}
-                `}
-                >
+                <div className="contact-form-item" ref={phoneWrapperRef}>
                   <label htmlFor="phone">Phone number</label>
                   <input
                     id="phone"
@@ -223,16 +220,15 @@ const Contact = () => {
                     value={phone}
                     placeholder="Your phone number"
                     onChange={e => setPhone(e.target.value)}
-                    onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
                 </div>
 
                 <div
-                  className={`contact-form-item 
-                  ${messageError ? "has-error" : ""}
-                  ${hasFocus === "message" ? "has-focus" : ""}
-                  `}
+                  className={`contact-form-item ${
+                    messageError ? "has-error" : ""
+                  }`}
+                  ref={messageWrapperRef}
                 >
                   <label htmlFor="message">Message*</label>
                   <textarea
@@ -243,6 +239,7 @@ const Contact = () => {
                     onChange={e => setMessage(e.target.value)}
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
+                    ref={messageRef}
                   />
                   {messageError && (
                     <span className="error">{messageError}</span>

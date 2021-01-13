@@ -186,6 +186,7 @@ const Contact = () => {
                     onChange={e => setName(e.target.value)}
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
+                    ref={nameRef}
                   />
                   {nameError && <span className="error">{nameError}</span>}
                 </div>
@@ -195,6 +196,7 @@ const Contact = () => {
                   ${emailError ? "has-error" : ""}
                   ${hasFocus === "email" ? "has-focus" : ""}
                   `}
+                  ref={emailWrapperRef}
                 >
                   <label htmlFor="email">Email address*</label>
                   <input
@@ -206,6 +208,7 @@ const Contact = () => {
                     onChange={e => setEmail(e.target.value)}
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
+                    ref={emailRef}
                   />
                   {emailError && <span className="error">{emailError}</span>}
                 </div>
@@ -214,6 +217,7 @@ const Contact = () => {
                   className={`contact-form-item
                 ${hasFocus === "phone" ? "has-focus" : ""}
                 `}
+                  ref={phoneWrapperRef}
                 >
                   <label htmlFor="phone">Phone number</label>
                   <input
@@ -233,6 +237,7 @@ const Contact = () => {
                   ${messageError ? "has-error" : ""}
                   ${hasFocus === "message" ? "has-focus" : ""}
                   `}
+                  ref={messageWrapperRef}
                 >
                   <label htmlFor="message">Message*</label>
                   <textarea
@@ -243,6 +248,7 @@ const Contact = () => {
                     onChange={e => setMessage(e.target.value)}
                     onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
+                    ref={messageRef}
                   />
                   {messageError && (
                     <span className="error">{messageError}</span>
