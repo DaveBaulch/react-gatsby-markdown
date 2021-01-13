@@ -9,7 +9,8 @@ const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   // on netlify the order of the array is reversed?
-  let sortedData = data.allMarkdownRemark.edges
+  let sortedData = data.allMarkdownRemark.edges.slice(1)
+  console.log(sortedData)
   if (
     Number(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
     Number(data.allMarkdownRemark.edges[1].node.frontmatter.year)
@@ -53,7 +54,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/work/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {
