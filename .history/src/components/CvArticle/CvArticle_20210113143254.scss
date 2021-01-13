@@ -3,14 +3,14 @@
 
 .cv-item {
   margin: 0;
-  // opacity: 0;
-  // transform: translateY(20px);
+  opacity: 0;
+  transform: translateY(20px);
 
-  // .sal-animate & {
-  //   opacity: 1;
-  //   transform: translateY(0);
-  //   transition: all 0.5s ease-in-out;
-  // }
+  .sal-animate & {
+    opacity: 1;
+    // transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 .cv-item__inner {

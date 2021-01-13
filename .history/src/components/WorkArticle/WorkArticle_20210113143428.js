@@ -14,7 +14,8 @@ const WorkArticle = ({ edge }) => (
               loading="lazy"
               className="work-item__img"
               width="280"
-              height="280"
+              height=280
+            
             />
           </div>
         </div>

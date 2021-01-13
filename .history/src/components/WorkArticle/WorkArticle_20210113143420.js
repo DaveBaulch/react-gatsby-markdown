@@ -13,8 +13,9 @@ const WorkArticle = ({ edge }) => (
               alt={edge.node.frontmatter.title}
               loading="lazy"
               className="work-item__img"
-              width="280"
-              height="280"
+              width=280
+             width=280
+            
             />
           </div>
         </div>
