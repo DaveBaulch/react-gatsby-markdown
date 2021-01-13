@@ -211,7 +211,12 @@ const Contact = () => {
                   {emailError && <span className="error">{emailError}</span>}
                 </div>
 
-                <div className="contact-form-item" ref={phoneRef}>
+                <div
+                  className={`contact-form-item ${
+                    phoneError ? "has-error" : ""
+                  }`}
+                  ref={phoneRef}
+                >
                   <label htmlFor="phone">Phone number</label>
                   <input
                     id="phone"

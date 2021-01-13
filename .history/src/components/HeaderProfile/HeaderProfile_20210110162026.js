@@ -4,7 +4,7 @@ import profileImage from "../../images/dave_250.jpg"
 
 const HeaderProfile = () => (
   <>
-    <img src={profileImage} className="photo" alt="Dave Baulch" />
+    <img key="photo1" src={profileImage} className="photo" alt="Dave Baulch" />
 
     <h2 className="profile-name">
       <span className="profile-name__name">Dave Baulch</span>

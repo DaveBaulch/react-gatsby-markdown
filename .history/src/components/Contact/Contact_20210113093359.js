@@ -30,7 +30,7 @@ const Contact = () => {
   // set error messages
   const [nameError, setNameError] = useState(null)
   const [emailError, setEmailError] = useState(null)
-
+  const [phoneError, setPhoneError] = useState(null)
   const [messageError, setMessageError] = useState(null)
 
   // run any validation here
@@ -38,7 +38,7 @@ const Contact = () => {
     console.log("validate")
     let hasNameError = true
     let hasEmailError = true
-
+    let hasPhoneError = true
     let hasMessageError = true
 
     if (name === "") {
@@ -55,15 +55,23 @@ const Contact = () => {
       hasEmailError = false
     }
 
+    if (phone === "") {
+      setPhoneError("Please add a phone number")
+      hasPhoneError = true
+    } else {
+      setPhoneError(null)
+      hasPhoneError = false
+    }
+
     if (message === "") {
       setMessageError("Please add your message")
-      hasMessageError = true
+      hasPhoneError = true
     } else {
       setMessageError(null)
       hasMessageError = false
     }
 
-    if (hasNameError || hasEmailError || hasMessageError) {
+    if (hasNameError || hasEmailError || hasPhoneError || hasMessageError) {
       setDisabled(true)
       console.log("errors")
     } else {
@@ -110,6 +118,7 @@ const Contact = () => {
   const clearErrors = () => {
     setNameError(null)
     setEmailError(null)
+    setPhoneError(null)
     setMessageError(null)
   }
 
@@ -126,6 +135,7 @@ const Contact = () => {
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
+      setPhoneError(null)
       setMessageError(null)
       setName("")
       setEmail("")
@@ -211,7 +221,12 @@ const Contact = () => {
                   {emailError && <span className="error">{emailError}</span>}
                 </div>
 
-                <div className="contact-form-item" ref={phoneRef}>
+                <div
+                  className={`contact-form-item ${
+                    phoneError ? "has-error" : ""
+                  }`}
+                  ref={phoneRef}
+                >
                   <label htmlFor="phone">Phone number</label>
                   <input
                     id="phone"
@@ -220,8 +235,10 @@ const Contact = () => {
                     value={phone}
                     placeholder="Your phone number"
                     onChange={e => setPhone(e.target.value)}
+                    onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
+                  {phoneError && <span className="error">{phoneError}</span>}
                 </div>
 
                 <div
@@ -249,6 +266,7 @@ const Contact = () => {
                   type="submit"
                   value="Send"
                   className="contact-form-button"
+                  disabled={disabled}
                 />
               </form>
             </div>

@@ -126,6 +126,7 @@ const Contact = () => {
     function clearErrors() {
       setNameError(null)
       setEmailError(null)
+      setPhoneError(null)
       setMessageError(null)
       setName("")
       setEmail("")
@@ -211,7 +212,12 @@ const Contact = () => {
                   {emailError && <span className="error">{emailError}</span>}
                 </div>
 
-                <div className="contact-form-item" ref={phoneRef}>
+                <div
+                  className={`contact-form-item ${
+                    phoneError ? "has-error" : ""
+                  }`}
+                  ref={phoneRef}
+                >
                   <label htmlFor="phone">Phone number</label>
                   <input
                     id="phone"
@@ -220,8 +226,10 @@ const Contact = () => {
                     value={phone}
                     placeholder="Your phone number"
                     onChange={e => setPhone(e.target.value)}
+                    onFocus={e => clearErrors(e)}
                     onBlur={e => onBlur(e)}
                   />
+                  {phoneError && <span className="error">{phoneError}</span>}
                 </div>
 
                 <div
