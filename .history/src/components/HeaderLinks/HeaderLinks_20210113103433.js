@@ -12,38 +12,23 @@ const Header = () => (
           fade
           to="/"
           className="nav__link"
-          activeClassName="link-active"
+          activeClassName="lin"
         >
           Home
         </AniLink>
       </li>
       <li className="nav__item">
-        <AniLink
-          fade
-          to="/about"
-          className="nav__link"
-          activeClassName="link-active"
-        >
+        <AniLink fade to="/about" className="nav__link">
           About
         </AniLink>
       </li>
       <li className="nav__item">
-        <AniLink
-          fade
-          to="/work"
-          className="nav__link"
-          activeClassName="link-active"
-        >
+        <AniLink fade to="/work" className="nav__link">
           Work
         </AniLink>
       </li>
       <li className="nav__item">
-        <AniLink
-          fade
-          to="/cv"
-          className="nav__link"
-          activeClassName="link-active"
-        >
+        <AniLink fade to="/cv" className="nav__link">
           CV
         </AniLink>
       </li>

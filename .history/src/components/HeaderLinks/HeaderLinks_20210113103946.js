@@ -38,12 +38,7 @@ const Header = () => (
         </AniLink>
       </li>
       <li className="nav__item">
-        <AniLink
-          fade
-          to="/cv"
-          className="nav__link"
-          activeClassName="link-active"
-        >
+        <AniLink fade to="/cv" className="nav__link">
           CV
         </AniLink>
       </li>
