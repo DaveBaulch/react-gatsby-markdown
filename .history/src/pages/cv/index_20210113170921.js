@@ -25,7 +25,6 @@ const md = ({ data }) => {
       console.log(edge.node.frontmatter.title)
       return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
     })
-
   return (
     <>
       <h1 className="page-title">{frontmatter.title}</h1>

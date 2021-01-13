@@ -9,15 +9,15 @@ const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   // on netlify the order of the array is reversed?
-  // let sortedData = data.allMarkdownRemark.edges.slice(1)
-  // if (
-  //   parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
-  //   parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year)
-  // ) {
-  //   sortedData.reverse()
-  // }
+  let sortedData = data.allMarkdownRemark.edges.slice(1)
+  if (
+    parseInt(data.allMarkdownRemark.edges[0].node.frontmatter.year) <
+    parseInt(data.allMarkdownRemark.edges[1].node.frontmatter.year)
+  ) {
+    sortedData.reverse()
+  }
 
-  // console.log(sortedData)
+  console.log(sortedData)
 
   const renderedList = data.allMarkdownRemark.edges
     .slice(1)
@@ -34,8 +34,6 @@ const md = ({ data }) => {
           __html: html,
         }}
       />
-
-      {renderedList}
     </>
   )
 }
@@ -57,7 +55,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/cv/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {

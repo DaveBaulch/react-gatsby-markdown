@@ -19,13 +19,10 @@ const md = ({ data }) => {
 
   // console.log(sortedData)
 
-  const renderedList = data.allMarkdownRemark.edges
-    .slice(1)
-    .map((edge, index) => {
-      console.log(edge.node.frontmatter.title)
-      return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
-    })
-
+  const renderedList = sortedData.map((edge, index) => {
+    console.log(edge.node.frontmatter.title)
+    return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
+  })
   return (
     <>
       <h1 className="page-title">{frontmatter.title}</h1>

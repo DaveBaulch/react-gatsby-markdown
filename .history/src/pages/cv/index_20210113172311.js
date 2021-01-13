@@ -19,12 +19,12 @@ const md = ({ data }) => {
 
   // console.log(sortedData)
 
-  const renderedList = data.allMarkdownRemark.edges
-    .slice(1)
-    .map((edge, index) => {
-      console.log(edge.node.frontmatter.title)
-      return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
-    })
+  // const renderedList = data.allMarkdownRemark.edges
+  //   .slice(1)
+  //   .map((edge, index) => {
+  //     console.log(edge.node.frontmatter.title)
+  //     return <CvArticle data-sal="fade" edge={edge} key={`work-${index}`} />
+  //   })
 
   return (
     <>
@@ -34,8 +34,6 @@ const md = ({ data }) => {
           __html: html,
         }}
       />
-
-      {renderedList}
     </>
   )
 }
@@ -57,7 +55,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/cv/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {
