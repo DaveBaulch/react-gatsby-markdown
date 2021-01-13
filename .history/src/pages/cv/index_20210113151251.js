@@ -10,7 +10,7 @@ const md = ({ data }) => {
   const renderedList = data.allMarkdownRemark.edges
     .slice(1)
     .map((edge, index) => {
-      return <CvArticle edge={edge} key={`work-${index}`} />
+      return <CArticle edge={edge} key={`work-${index}`} />
     })
 
   return (
