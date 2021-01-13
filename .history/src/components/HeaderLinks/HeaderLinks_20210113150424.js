@@ -23,7 +23,7 @@ const Header = () => (
         </Link>
       </li>
       <li className="nav__item">
-        <Link to="/cv" className="nav__link" activeClassName="link-active">
+        <Link fade to="/cv" className="nav__link" activeClassName="link-active">
           CV
         </Link>
       </li>
