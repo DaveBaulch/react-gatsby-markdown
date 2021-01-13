@@ -7,15 +7,13 @@ import WorkArticle from "../../components/WorkArticle"
 const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
-  const renderedList = data.allMarkdownRemark.edges
-    .slice(1)
-    .map((edge, index) => {
-      return (
-        <div data-sal="fade" key={`work-${index}`}>
-          <WorkArticle edge={edge} />
-        </div>
-      )
-    })
+  const renderedList = data.allMarkdownRemark.edges.slice(1).map(edge => {
+    return (
+      <div data-sal="fade" key={`work-`${index} }>
+        <WorkArticle edge={edge} />
+      </div>
+    )
+  });
 
   return (
     <>
@@ -25,7 +23,8 @@ const md = ({ data }) => {
           __html: html,
         }}
       />
-      {renderedList}
+
+            
     </>
   )
 }

@@ -7,27 +7,30 @@ import WorkArticle from "../../components/WorkArticle"
 const md = ({ data }) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
-  const renderedList = data.allMarkdownRemark.edges
-    .slice(1)
-    .map((edge, index) => {
-      return (
-        <div data-sal="fade" key={`work-${index}`}>
-          <WorkArticle edge={edge} />
-        </div>
-      )
-    })
-
-  return (
-    <>
+  const firstItem = () => {
+    ;<>
       <h1 className="page-title">{frontmatter.title}</h1>
       <div
         dangerouslySetInnerHTML={{
           __html: html,
         }}
       />
-      {renderedList}
     </>
-  )
+  }
+
+  const renderedList = () => {
+    ;<div>
+      {data.allMarkdownRemark.edges.slice(1).map((edge, index) => {
+        return (
+          <div data-sal="fade" key={`work-${index}`}>
+            <WorkArticle edge={edge} />
+          </div>
+        )
+      })}
+    </div>
+  }
+
+  return <>firstItem() renderedList();</>
 }
 
 const Work = ({ data }) => (
@@ -47,7 +50,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/work/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {

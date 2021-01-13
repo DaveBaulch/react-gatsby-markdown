@@ -25,7 +25,7 @@ const md = ({ data }) => {
           __html: html,
         }}
       />
-      {renderedList}
+      renderedList
     </>
   )
 }
