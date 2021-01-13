@@ -59,7 +59,6 @@ const MobileMenu = () => {
                 <AniLink
                   to="/work"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   Work
@@ -69,7 +68,6 @@ const MobileMenu = () => {
                 <AniLink
                   to="/cv"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   CV

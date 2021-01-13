@@ -94,7 +94,5 @@ a.sidenav-list__link {
     color: $white;
   }
 
-  &.sidenav-link-active {
-    border: 1px solid $white;
-  }
+  &.activeClassName="sidenav-link-active" 
 }

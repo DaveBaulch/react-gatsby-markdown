@@ -39,7 +39,7 @@ const MobileMenu = () => {
                 <AniLink
                   to="/"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
+                  activeClassName="link-active"
                   hidden={!isNavActive}
                 >
                   Home
@@ -49,7 +49,6 @@ const MobileMenu = () => {
                 <AniLink
                   to="/about"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   About
@@ -59,7 +58,6 @@ const MobileMenu = () => {
                 <AniLink
                   to="/work"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   Work
@@ -69,7 +67,6 @@ const MobileMenu = () => {
                 <AniLink
                   to="/cv"
                   className="sidenav-list__link"
-                  activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   CV
