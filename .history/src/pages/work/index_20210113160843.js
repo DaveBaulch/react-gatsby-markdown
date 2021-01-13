@@ -5,7 +5,7 @@ import Layout from "../../components/Layout"
 import WorkArticle from "../../components/WorkArticle"
 
 const md = ({ data }) => {
-  console.log(data)
+  console.log()
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
   const renderedList = data.allMarkdownRemark.edges.map((edge, index) => {
