@@ -23,10 +23,18 @@ const Header = () => {
     <>
       <div className="header-wrapper">
         <div className="bg-img">
-          <div class="header-img header-img--1" />
-          <div class="header-img header-img--2" />
-          <div class="header-img header-img--3" />
-          <div class="header-img header-img--4" />
+          <div class="header-img header-img--1"/>
+          <div
+            v-else-if="currentPage === 'about'"
+            key="img2"
+            class="header-img header-img--2"
+          />
+          <div
+            v-else-if="currentPage === 'cv'"
+            key="img3"
+            class="header-img header-img--3"
+          />
+          <div v-else key="img4" class="header-img header-img--4" />
         </div>
         <div className="gradient-overlay" />
         <div id="header" className="header">

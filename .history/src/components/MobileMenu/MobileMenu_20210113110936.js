@@ -56,24 +56,24 @@ const MobileMenu = () => {
                 </Link>
               </li>
               <li className="sidenav-list__item">
-                <Link
+                <AniLink
                   to="/work"
                   className="sidenav-list__link"
                   activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   Work
-                </Link>
+                </AniLink>
               </li>
               <li className="sidenav-list__item">
-                <Link
+                <AniLink
                   to="/cv"
                   className="sidenav-list__link"
                   activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   CV
-                </Link>
+                </AniLink>
               </li>
             </ul>
             <OpenContactButton>Contact Me!</OpenContactButton>

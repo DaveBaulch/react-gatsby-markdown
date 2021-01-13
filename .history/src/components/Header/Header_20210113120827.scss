@@ -53,23 +53,21 @@
   }
 }
 
-.header-img {
+// .header-img {
   position: absolute;
   width: 100vw;
   height: 200px;
   overflow: hidden;
   top: 0;
   z-index: -1;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-  background-size: cover !important;
 
   @include breakpoint(md) {
     height: 300px;
   }
 }
 
-.header-img.header-img--1 {
+.header-img.header-img--1,
+.home-page .header-wrapper {
   background: url("../../images/bg1-xs.jpg") no-repeat right center;
 
   @include breakpoint(sm) {
@@ -83,14 +81,10 @@
   @include breakpoint(lg) {
     background: url("../../images/bg1-lg.jpg") no-repeat right center;
   }
-
-  .home-page & {
-    opacity: 1;
-    z-index: 100;
-  }
 }
 
-.header-img.header-img--2 {
+.header-img.header-img--2,
+.about-page .header-wrapper {
   background: url("../../images/bg2-xs.jpg") no-repeat right center;
 
   @include breakpoint(sm) {
@@ -104,14 +98,10 @@
   @include breakpoint(lg) {
     background: url("../../images/bg2-lg.jpg") no-repeat right center;
   }
-
-  .about-page & {
-    opacity: 1;
-    z-index: 100;
-  }
 }
 
-.header-img.header-img--3 {
+.header-img.header-img--3,
+.work-page .header-wrapper {
   background: url("../../images/bg3-xs.jpg") no-repeat right center;
 
   @include breakpoint(sm) {
@@ -125,14 +115,10 @@
   @include breakpoint(lg) {
     background: url("../../images/bg3-lg.jpg") no-repeat right center;
   }
-
-  .work-page & {
-    opacity: 1;
-    z-index: 100;
-  }
 }
 
-.header-img.header-img--4 {
+.header-img.header-img--4,
+.cv-page .header-wrapper {
   background: url("../../images/bg4-xs.jpg") no-repeat right center;
 
   @include breakpoint(sm) {
@@ -145,11 +131,6 @@
 
   @include breakpoint(lg) {
     background: url("../../images/bg4-lg.jpg") no-repeat right center;
-  }
-
-  .cv-page & {
-    opacity: 1;
-    z-index: 100;
   }
 }
 

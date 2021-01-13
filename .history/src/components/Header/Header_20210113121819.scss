@@ -61,8 +61,8 @@
   top: 0;
   z-index: -1;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
-  background-size: cover !important;
+  transition: all 1s ease-in-out;
+  background-size: cover;
 
   @include breakpoint(md) {
     height: 300px;
@@ -70,10 +70,10 @@
 }
 
 .header-img.header-img--1 {
-  background: url("../../images/bg1-xs.jpg") no-repeat right center;
+  background-image: url("../../images/bg1-xs.jpg") no-repeat right center;
 
   @include breakpoint(sm) {
-    background: url("../../images/bg1-sm.jpg") no-repeat right center;
+    background-image: url("../../images/bg1-sm.jpg") no-repeat right center;
   }
 
   @include breakpoint(md) {

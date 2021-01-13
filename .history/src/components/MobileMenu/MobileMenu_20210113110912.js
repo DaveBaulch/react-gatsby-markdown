@@ -1,7 +1,7 @@
 import React from "react"
 import { useContext } from "react"
 import NavigationContext from "../../contexts/NavigationContext"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "./MobileMenu.scss"
 import MobileMenuCloseButton from "./../MobileMenuCloseButton"
 import OpenContactButton from "./../OpenContactButton"
@@ -56,24 +56,24 @@ const MobileMenu = () => {
                 </Link>
               </li>
               <li className="sidenav-list__item">
-                <Link
+                <AniLink
                   to="/work"
                   className="sidenav-list__link"
                   activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   Work
-                </Link>
+                </AniLink>
               </li>
               <li className="sidenav-list__item">
-                <Link
+                <AniLink
                   to="/cv"
                   className="sidenav-list__link"
                   activeClassName="sidenav-link-active"
                   hidden={!isNavActive}
                 >
                   CV
-                </Link>
+                </AniLink>
               </li>
             </ul>
             <OpenContactButton>Contact Me!</OpenContactButton>

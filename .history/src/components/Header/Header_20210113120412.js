@@ -25,8 +25,8 @@ const Header = () => {
         <div className="bg-img">
           <div class="header-img header-img--1" />
           <div class="header-img header-img--2" />
-          <div class="header-img header-img--3" />
-          <div class="header-img header-img--4" />
+          <div class="header-img header-img--1" />
+          <div class="header-img header-img--1" />
         </div>
         <div className="gradient-overlay" />
         <div id="header" className="header">

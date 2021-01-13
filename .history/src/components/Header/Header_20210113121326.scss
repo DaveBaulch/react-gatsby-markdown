@@ -61,8 +61,6 @@
   top: 0;
   z-index: -1;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
-  background-size: cover !important;
 
   @include breakpoint(md) {
     height: 300px;
@@ -84,7 +82,7 @@
     background: url("../../images/bg1-lg.jpg") no-repeat right center;
   }
 
-  .home-page & {
+  .home & {
     opacity: 1;
     z-index: 100;
   }
@@ -105,7 +103,7 @@
     background: url("../../images/bg2-lg.jpg") no-repeat right center;
   }
 
-  .about-page & {
+  .about & {
     opacity: 1;
     z-index: 100;
   }
@@ -126,7 +124,7 @@
     background: url("../../images/bg3-lg.jpg") no-repeat right center;
   }
 
-  .work-page & {
+  .work & {
     opacity: 1;
     z-index: 100;
   }
@@ -147,7 +145,7 @@
     background: url("../../images/bg4-lg.jpg") no-repeat right center;
   }
 
-  .cv-page & {
+  .cv & {
     opacity: 1;
     z-index: 100;
   }

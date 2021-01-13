@@ -11,9 +11,7 @@ const MobileMenu = () => {
 
   return (
     <div
-      className={
-        isNavActive ? "sidenav-container nav-active" : "sidenav-container"
-      }
+      className=
       aria-hidden={!isNavActive}
     >
       <div

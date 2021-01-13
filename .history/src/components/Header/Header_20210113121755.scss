@@ -61,8 +61,8 @@
   top: 0;
   z-index: -1;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
-  background-size: cover !important;
+  transition: all 1s ease-in-out;
+    background-size: cover;
 
   @include breakpoint(md) {
     height: 300px;

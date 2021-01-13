@@ -10,12 +10,7 @@ const MobileMenu = () => {
   const { isNavActive, onNavActiveChange } = useContext(NavigationContext)
 
   return (
-    <div
-      className={
-        isNavActive ? "sidenav-container nav-active" : "sidenav-container"
-      }
-      aria-hidden={!isNavActive}
-    >
+    <div className="sidenav-container" aria-hidden={!isNavActive}>
       <div
         role="presentation"
         className="sidenav-backdrop"
