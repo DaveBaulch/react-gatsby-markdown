@@ -204,10 +204,10 @@ textarea {
   padding-right: 0;
   border: 0;
   border-bottom: 1px solid $grey-light !important;
-  color: $white !important;
+  color: $white;
 
   .has-error & {
-    color: transparent !important;
+    color: transparent;
   }
 }
 
@@ -297,5 +297,5 @@ input[type="submit"].contact-form-button {
 }
 
 input:-internal-autofill-selected {
-  background-color: transparent !important;
+  background-color: transparent;
 }

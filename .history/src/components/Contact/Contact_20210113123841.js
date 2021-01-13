@@ -45,14 +45,16 @@ const Contact = () => {
     }
 
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const emailValid = re.test(email)
+    const checkEmailError = re.test(email)
 
-    if (!emailValid) {
-      setEmailError("Please add a valid email address")
-      hasEmailError = true
-    } else {
-      hasEmailError = false
-    }
+    if (hasEmailError) setEmailError("Please add a valid email address")
+
+    // if (email === "") {
+    //   setEmailError("Please add a valid email address")
+    //   hasEmailError = true
+    // } else {
+    //   hasEmailError = false
+    // }
 
     if (message === "") {
       setMessageError("Please add your message")
