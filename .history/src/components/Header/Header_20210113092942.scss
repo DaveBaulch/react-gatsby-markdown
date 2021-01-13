@@ -63,17 +63,19 @@
 
 .home-page .header-wrapper {
   background: url("../../images/bg1-xs.jpg") no-repeat right center;
-  
+  // background-size: cover;
+
   @include breakpoint(sm) {
     background: url("../../images/bg1-sm.jpg") no-repeat right center;
+    // background-size: cover;
   }
-
   @include breakpoint(md) {
     background: url("../../images/bg1-md.jpg") no-repeat right center;
+    // background-size: cover;
   }
-
   @include breakpoint(lg) {
     background: url("../../images/bg1-lg.jpg") no-repeat right center;
+    // background-size: cover;
   }
 }
 
@@ -119,7 +121,7 @@
   @include breakpoint(md) {
     background: url("../../images/bg4-md.jpg") no-repeat right center;
   }
-
+  
   @include breakpoint(lg) {
     background: url("../../images/bg4-lg.jpg") no-repeat right center;
   }
