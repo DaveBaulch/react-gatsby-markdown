@@ -8,6 +8,11 @@ const md = ({ data }) => {
   console.log(data)
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node
 
+   const sortedArray = await fileArray.sort((a, b) => {
+    return a.date.getTime() - b.date.getTime()
+  })
+
+
   const renderedList = data.allMarkdownRemark.edges.map((edge, index) => {
     console.log(edge.node.frontmatter.title)
     return <WorkArticle data-sal="fade" edge={edge} key={`work-${index}`} />
@@ -43,7 +48,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/work/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {

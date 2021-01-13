@@ -43,7 +43,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/work/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___year], order: DESC }
     ) {
       edges {
         node {
@@ -51,7 +51,6 @@ export const query = graphql`
           frontmatter {
             date
             title
-            year
             image
             url
             button
