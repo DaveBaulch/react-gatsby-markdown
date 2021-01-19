@@ -6,7 +6,9 @@ import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
 import FocusTrap from "focus-trap-react"
+
 import formReducer from "../../reducers/formReducer"
+import { resetWarningCache } from "prop-types"
 
 const initialFormState = {
   name: "",
@@ -40,7 +42,6 @@ const Contact = () => {
   }
 
   const resetFormFields = () => {
-    console.log("reset form fields")
     dispatch({
       type: "RESET FORM FIELDS",
     })
@@ -52,6 +53,7 @@ const Contact = () => {
   // set error messages
   const [nameError, setNameError] = useState(null)
   const [emailError, setEmailError] = useState(null)
+
   const [messageError, setMessageError] = useState(null)
 
   // run any validation here
@@ -106,8 +108,6 @@ const Contact = () => {
       message: formState.message,
     }
 
-    console.log(form)
-
     const axiosConfig = {
       header: { "Content-Type": "application/x-www-form-urlencoded" },
     }
@@ -124,13 +124,11 @@ const Contact = () => {
         // handle success
         console.log("success" + response)
         setFormSuccess(true)
-        resetFormFields()
       })
       .catch(function (response) {
         // handle error
         console.log("fail" + response)
         setFormFail(true)
-        resetFormFields()
       })
   }
 
@@ -166,9 +164,9 @@ const Contact = () => {
       setFormFail(false)
     }
     setTimeout(function () {
-      clearForm()
+            clearErrors()()
     }, 1000)
-  }, [isContactActive])
+  }, [isContactActive, resetFormFields])
 
   return (
     <div

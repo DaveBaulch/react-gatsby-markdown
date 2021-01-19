@@ -52,6 +52,7 @@ const Contact = () => {
   // set error messages
   const [nameError, setNameError] = useState(null)
   const [emailError, setEmailError] = useState(null)
+
   const [messageError, setMessageError] = useState(null)
 
   // run any validation here

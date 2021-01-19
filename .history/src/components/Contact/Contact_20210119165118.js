@@ -52,6 +52,7 @@ const Contact = () => {
   // set error messages
   const [nameError, setNameError] = useState(null)
   const [emailError, setEmailError] = useState(null)
+
   const [messageError, setMessageError] = useState(null)
 
   // run any validation here
@@ -106,7 +107,7 @@ const Contact = () => {
       message: formState.message,
     }
 
-    console.log(form)
+    consoile.log(form);
 
     const axiosConfig = {
       header: { "Content-Type": "application/x-www-form-urlencoded" },

@@ -1,19 +1,11 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useState, useEffect, useReducer } from "react"
+import { useContext, useState, useEffect } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
 import FocusTrap from "focus-trap-react"
-import formReducer from "../../reducers/formReducer"
-
-const initialFormState = {
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-}
 
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
@@ -24,27 +16,12 @@ const Contact = () => {
   const [hasFocus, setHasFocus] = useState(null)
 
   //  field values
-  // const [name, setName] = useState("")
-  // const [email, setEmail] = useState("")
-  // const [phone, setPhone] = useState("")
-  // const [message, setMessage] = useState("")
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [message, setMessage] = useState("")
 
-  const [formState, dispatch] = useReducer(formReducer, initialFormState)
-
-  const handleTextChange = e => {
-    dispatch({
-      type: "HANDLE INPUT TEXT",
-      field: e.target.name,
-      payload: e.target.value,
-    })
-  }
-
-  const resetFormFields = () => {
-    console.log("reset form fields")
-    dispatch({
-      type: "RESET FORM FIELDS",
-    })
-  }
+  
 
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFail, setFormFail] = useState(false)
@@ -52,6 +29,7 @@ const Contact = () => {
   // set error messages
   const [nameError, setNameError] = useState(null)
   const [emailError, setEmailError] = useState(null)
+
   const [messageError, setMessageError] = useState(null)
 
   // run any validation here
@@ -61,7 +39,7 @@ const Contact = () => {
     let hasEmailError = true
     let hasMessageError = true
 
-    if (formState.name === "") {
+    if (name === "") {
       setNameError("Please add your name")
       hasNameError = true
     } else {
@@ -69,7 +47,7 @@ const Contact = () => {
     }
 
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const emailValid = re.test(formState.email)
+    const emailValid = re.test(email)
 
     if (!emailValid) {
       setEmailError("Please add a valid email address")
@@ -78,7 +56,7 @@ const Contact = () => {
       hasEmailError = false
     }
 
-    if (formState.message === "") {
+    if (message === "") {
       setMessageError("Please add your message")
       hasMessageError = true
     } else {
@@ -100,13 +78,11 @@ const Contact = () => {
     console.log("submit form")
 
     const form = {
-      name: formState.name,
-      email: formState.email,
-      phone: formState.phone,
-      message: formState.message,
+      name: name,
+      email: email,
+      phone: phone,
+      message: message,
     }
-
-    console.log(form)
 
     const axiosConfig = {
       header: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -124,13 +100,11 @@ const Contact = () => {
         // handle success
         console.log("success" + response)
         setFormSuccess(true)
-        resetFormFields()
       })
       .catch(function (response) {
         // handle error
         console.log("fail" + response)
         setFormFail(true)
-        resetFormFields()
       })
   }
 
@@ -142,7 +116,7 @@ const Contact = () => {
     //console.log(hasFocus)
   }
 
-  const onBlur = () => {
+  const onBlur = event => {
     // console.log(event.target.name)
     setHasFocus(null)
   }
@@ -153,20 +127,19 @@ const Contact = () => {
   }
 
   useEffect(() => {
-    function clearForm() {
+    function clearErrors() {
       setNameError(null)
       setEmailError(null)
       setMessageError(null)
-      // setName("")
-      // setEmail("")
-      // setPhone("")
-      // setMessage("")
-      resetFormFields()
+      setName("")
+      setEmail("")
+      setPhone("")
+      setMessage("")
       setFormSuccess(false)
       setFormFail(false)
     }
     setTimeout(function () {
-      clearForm()
+      clearErrors()
     }, 1000)
   }, [isContactActive])
 
@@ -216,10 +189,9 @@ const Contact = () => {
                       id="name"
                       type="text"
                       name="name"
-                      value={formState.name}
+                      value={name}
                       placeholder="Your name"
-                      //onChange={e => setName(e.target.value)}
-                      onChange={e => handleTextChange(e)}
+                      onChange={e => setName(e.target.value)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
                     />
@@ -237,10 +209,9 @@ const Contact = () => {
                       id="email"
                       type="text"
                       name="email"
-                      value={formState.email}
+                      value={email}
                       placeholder="Your email"
-                      //onChange={e => setEmail(e.target.value)}
-                      onChange={e => handleTextChange(e)}
+                      onChange={e => setEmail(e.target.value)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
                     />
@@ -257,10 +228,9 @@ const Contact = () => {
                       id="phone"
                       type="text"
                       name="phone"
-                      value={formState.phone}
+                      value={phone}
                       placeholder="Your phone number"
-                      //onChange={e => setPhone(e.target.value)}
-                      onChange={e => handleTextChange(e)}
+                      onChange={e => setPhone(e.target.value)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
                     />
@@ -276,10 +246,9 @@ const Contact = () => {
                     <textarea
                       id="message"
                       name="message"
-                      value={formState.message}
+                      value={message}
                       placeholder="How can I be of help?"
-                      //onChange={e => setMessage(e.target.value)}
-                      onChange={e => handleTextChange(e)}
+                      onChange={e => setMessage(e.target.value)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
                     />
