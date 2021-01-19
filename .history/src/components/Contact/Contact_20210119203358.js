@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useEffect, useReducer } from "react"
+import { useContext, useState, useEffect, useReducer } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
@@ -16,14 +16,18 @@ const initialFormState = {
   nameError: "",
   emailError: "",
   messageError: "",
-  formDisabled: true,
+  disabled: true,
   hasFocus: null,
-  formSuccess: false,
-  formFail: false,
 }
 
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
+
+  // set a state variable which can be used to disable the save/submit button
+  // we set it to true so that the form is disabled on first render
+  // const [disabled, setDisabled] = useState(true) // not implemented as an accessibility issue
+  //const [hasFocus, setHasFocus] = useState(null)
+
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
   const handleTextChange = e => {
@@ -49,38 +53,30 @@ const Contact = () => {
   }
 
   const resetFormFields = () => {
+    //console.log("reset form fields")
     dispatch({
       type: "RESET FORM FIELDS",
     })
   }
 
   const setDisabled = status => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET DISABLED",
       payload: status,
     })
   }
 
-  const setHasFocus = element => {
+  const setHasFocus = e => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET HAS FOCUS",
-      payload: element,
+      payload: e.target.name,
     })
   }
 
-  const setFormSuccess = status => {
-    dispatch({
-      type: "SET FORM SUCCESS",
-      payload: status,
-    })
-  }
-
-  const setFormFail = status => {
-    dispatch({
-      type: "SET FORM FAIL",
-      payload: status,
-    })
-  }
+  const [formSuccess, setFormSuccess] = useState(false)
+  const [formFail, setFormFail] = useState(false)
 
   // run any validation here
   const formValidation = () => {
@@ -160,7 +156,7 @@ const Contact = () => {
   }
   const clearErrors = event => {
     clearFormErrors()
-    setHasFocus(event.target.name)
+    setHasFocus(event)
     //console.log(hasFocus)
   }
 
@@ -209,7 +205,7 @@ const Contact = () => {
           </div>
 
           <div className="right-col">
-            {!formState.formSuccess && !formState.formFail && (
+            {!formSuccess && !formFail && (
               <div className="contact-block">
                 <form
                   name="contact"
@@ -223,8 +219,8 @@ const Contact = () => {
                   <input type="hidden" name="form-name" value="contact" />
                   <div
                     className={`contact-form-item 
-                  ${formState.nameError ? "has-error" : ""}
-                  ${formState.hasFocus === "name" ? "has-focus" : ""}
+                  ${formStateformState.nameError ? "has-error" : ""}
+                  ${hasFocus === "name" ? "has-focus" : ""}
                   `}
                   >
                     <label htmlFor="name">Name*</label>
@@ -246,7 +242,7 @@ const Contact = () => {
                   <div
                     className={`contact-form-item 
                   ${formState.emailError ? "has-error" : ""}
-                  ${formState.hasFocus === "email" ? "has-focus" : ""}
+                  ${hasFocus === "email" ? "has-focus" : ""}
                   `}
                   >
                     <label htmlFor="email">Email address*</label>
@@ -267,7 +263,7 @@ const Contact = () => {
 
                   <div
                     className={`contact-form-item
-                ${formState.hasFocus === "phone" ? "has-focus" : ""}
+                ${hasFocus === "phone" ? "has-focus" : ""}
                 `}
                   >
                     <label htmlFor="phone">Phone number</label>
@@ -286,7 +282,7 @@ const Contact = () => {
                   <div
                     className={`contact-form-item 
                   ${formState.messageError ? "has-error" : ""}
-                  ${formState.hasFocus === "message" ? "has-focus" : ""}
+                  ${hasFocus === "message" ? "has-focus" : ""}
                   `}
                   >
                     <label htmlFor="message">Message*</label>
@@ -312,8 +308,8 @@ const Contact = () => {
                 </form>
               </div>
             )}
-            formState.
-            {formState.formSuccess && (
+
+            {formSuccess && (
               <div className="success-block">
                 <h2>Thank you!</h2>
                 <p>
@@ -325,7 +321,8 @@ const Contact = () => {
                 </p>
               </div>
             )}
-            {formState.formFail && (
+
+            {formFail && (
               <div className="error-block">
                 <h2>Oh no!</h2>
                 <p>

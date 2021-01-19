@@ -43,7 +43,7 @@ const formReducer = (state, action) => {
     case "SET FORM FAIL":
       return {
         ...state,
-        formFail: action.payload,
+        formSuccess: action.payload,
       }
     default:
       return

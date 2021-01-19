@@ -35,15 +35,10 @@ const formReducer = (state, action) => {
         ...state,
         hasFocus: action.payload,
       }
-    case "SET FORM SUCCESS":
+    case "SET FORM FOCUS":
       return {
         ...state,
-        formSuccess: action.payload,
-      }
-    case "SET FORM FAIL":
-      return {
-        ...state,
-        formFail: action.payload,
+        hasFocus: action.payload,
       }
     default:
       return

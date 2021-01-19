@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { useContext, useEffect, useReducer } from "react"
+import { useContext, useState, useEffect, useReducer } from "react"
 import ContactContext from "../../contexts/ContactContext"
 import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
@@ -24,6 +24,12 @@ const initialFormState = {
 
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
+
+  // set a state variable which can be used to disable the save/submit button
+  // we set it to true so that the form is disabled on first render
+  // const [disabled, setDisabled] = useState(true) // not implemented as an accessibility issue
+  //const [hasFocus, setHasFocus] = useState(null)
+
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
   const handleTextChange = e => {
@@ -49,26 +55,30 @@ const Contact = () => {
   }
 
   const resetFormFields = () => {
+    //console.log("reset form fields")
     dispatch({
       type: "RESET FORM FIELDS",
     })
   }
 
   const setDisabled = status => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET DISABLED",
       payload: status,
     })
   }
 
-  const setHasFocus = element => {
+  const setHasFocus = e => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET HAS FOCUS",
-      payload: element,
+      payload: e.target.name,
     })
   }
 
-  const setFormSuccess = status => {
+  const setFormSucces = status => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET FORM SUCCESS",
       payload: status,
@@ -76,11 +86,15 @@ const Contact = () => {
   }
 
   const setFormFail = status => {
+    //console.log("reset form fields")
     dispatch({
       type: "SET FORM FAIL",
       payload: status,
     })
-  }
+  }  
+
+  // const [formSuccess, setFormSuccess] = useState(false)
+  // const [formFail, setFormFail] = useState(false)
 
   // run any validation here
   const formValidation = () => {
@@ -160,7 +174,7 @@ const Contact = () => {
   }
   const clearErrors = event => {
     clearFormErrors()
-    setHasFocus(event.target.name)
+    setHasFocus(event)
     //console.log(hasFocus)
   }
 
@@ -209,7 +223,7 @@ const Contact = () => {
           </div>
 
           <div className="right-col">
-            {!formState.formSuccess && !formState.formFail && (
+            {!formSuccess && !formFail && (
               <div className="contact-block">
                 <form
                   name="contact"
@@ -312,8 +326,8 @@ const Contact = () => {
                 </form>
               </div>
             )}
-            formState.
-            {formState.formSuccess && (
+
+            {formSuccess && (
               <div className="success-block">
                 <h2>Thank you!</h2>
                 <p>
@@ -325,7 +339,8 @@ const Contact = () => {
                 </p>
               </div>
             )}
-            {formState.formFail && (
+
+            {formFail && (
               <div className="error-block">
                 <h2>Oh no!</h2>
                 <p>

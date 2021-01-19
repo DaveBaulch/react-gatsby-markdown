@@ -24,6 +24,12 @@ const initialFormState = {
 
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
+
+  // set a state variable which can be used to disable the save/submit button
+  // we set it to true so that the form is disabled on first render
+  // const [disabled, setDisabled] = useState(true) // not implemented as an accessibility issue
+  //const [hasFocus, setHasFocus] = useState(null)
+
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
   const handleTextChange = e => {
@@ -61,10 +67,10 @@ const Contact = () => {
     })
   }
 
-  const setHasFocus = element => {
+  const setHasFocus = e => {
     dispatch({
       type: "SET HAS FOCUS",
-      payload: element,
+      payload: e.target.name,
     })
   }
 
@@ -81,6 +87,9 @@ const Contact = () => {
       payload: status,
     })
   }
+
+  // const [formSuccess, setFormSuccess] = useState(false)
+  // const [formFail, setFormFail] = useState(false)
 
   // run any validation here
   const formValidation = () => {
@@ -160,7 +169,7 @@ const Contact = () => {
   }
   const clearErrors = event => {
     clearFormErrors()
-    setHasFocus(event.target.name)
+    setHasFocus(event)
     //console.log(hasFocus)
   }
 

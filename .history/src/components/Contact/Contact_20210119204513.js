@@ -24,6 +24,7 @@ const initialFormState = {
 
 const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
+
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
   const handleTextChange = e => {

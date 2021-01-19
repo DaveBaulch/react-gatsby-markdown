@@ -40,10 +40,10 @@ const formReducer = (state, action) => {
         ...state,
         formSuccess: action.payload,
       }
-    case "SET FORM FAIL":
+    case "SET FORM SUCCESS":
       return {
         ...state,
-        formFail: action.payload,
+        formSuccess: action.payload,
       }
     default:
       return
