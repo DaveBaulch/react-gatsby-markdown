@@ -220,6 +220,7 @@ const Contact = () => {
                       name="name"
                       value={formState.name}
                       placeholder="Your name"
+                      //onChange={e => setName(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
@@ -242,6 +243,7 @@ const Contact = () => {
                       name="email"
                       value={formState.email}
                       placeholder="Your email"
+                      //onChange={e => setEmail(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
@@ -281,6 +283,7 @@ const Contact = () => {
                       name="message"
                       value={formState.message}
                       placeholder="How can I be of help?"
+                      //onChange={e => setMessage(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}

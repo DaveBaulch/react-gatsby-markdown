@@ -23,8 +23,14 @@ const Contact = () => {
 
   // set a state variable which can be used to disable the save/submit button
   // we set it to true so that the form is disabled on first render
-  const [disabled, setDisabled] = useState(true) // not implemented as an accessibility issue
+  const [disabled, setDisabled] = useState(true)
   const [hasFocus, setHasFocus] = useState(null)
+
+  //  field values
+  // const [name, setName] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [phone, setPhone] = useState("")
+  // const [message, setMessage] = useState("")
 
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
@@ -60,16 +66,27 @@ const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFail, setFormFail] = useState(false)
 
+  // set error messages
+  // const [nameError, setNameError] = useState(null)
+  // const [emailError, setEmailError] = useState(null)
+  // const [messageError, setMessageError] = useState(null)
+
   // run any validation here
   const formValidation = () => {
     console.log("validate")
     let hasError = false
+    // let hasNameError = true
+    // let hasEmailError = true
+    // let hasMessageError = true
 
     if (formState.name === "") {
+      //setNameError("Please add your name")
       handleFieldError("nameError", "Please add your name")
+      // hasNameError = true
       hasError = true
     } else {
       handleFieldError("nameError", "")
+      // hasNameError = false
     }
 
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -220,6 +237,7 @@ const Contact = () => {
                       name="name"
                       value={formState.name}
                       placeholder="Your name"
+                      //onChange={e => setName(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
@@ -242,6 +260,7 @@ const Contact = () => {
                       name="email"
                       value={formState.email}
                       placeholder="Your email"
+                      //onChange={e => setEmail(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
@@ -263,6 +282,7 @@ const Contact = () => {
                       name="phone"
                       value={formState.phone}
                       placeholder="Your phone number"
+                      //onChange={e => setPhone(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}
@@ -281,6 +301,7 @@ const Contact = () => {
                       name="message"
                       value={formState.message}
                       placeholder="How can I be of help?"
+                      //onChange={e => setMessage(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}

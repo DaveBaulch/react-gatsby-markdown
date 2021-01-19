@@ -5,17 +5,10 @@ const formReducer = (state, action) => {
         ...state,
         [action.field]: action.payload,
       }
-    case "HANDLE FIELD ERROR":
+    case "HANDLE INPUT TEXT":
       return {
         ...state,
         [action.field]: action.payload,
-      }
-    case "CLEAR FIELD ERRORS":
-      return {
-        ...state,
-        nameError: "",
-        emailError: "",
-        messageError: "",
       }
     case "RESET FORM FIELDS":
       return {

@@ -281,6 +281,7 @@ const Contact = () => {
                       name="message"
                       value={formState.message}
                       placeholder="How can I be of help?"
+                      //onChange={e => setMessage(e.target.value)}
                       onChange={e => handleTextChange(e)}
                       onFocus={e => clearErrors(e)}
                       onBlur={e => onBlur(e)}

@@ -10,12 +10,12 @@ const formReducer = (state, action) => {
         ...state,
         [action.field]: action.payload,
       }
-    case "CLEAR FIELD ERRORS":
+    case "CLEAR ERRORS":
       return {
         ...state,
-        nameError: "",
-        emailError: "",
-        messageError: "",
+        nameError: false,
+        emailError: false
+        messageError: false,
       }
     case "RESET FORM FIELDS":
       return {

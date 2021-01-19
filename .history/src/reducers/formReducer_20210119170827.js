@@ -1,4 +1,11 @@
-const formReducer = (state, action) => {
+    case "RESET FORM FIELDS":
+      return {
+        ...state,
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      }const formReducer = (state, action) => {
   switch (action.type) {
     case "HANDLE INPUT TEXT":
       return {
@@ -10,13 +17,7 @@ const formReducer = (state, action) => {
         ...state,
         [action.field]: action.payload,
       }
-    case "CLEAR FIELD ERRORS":
-      return {
-        ...state,
-        nameError: "",
-        emailError: "",
-        messageError: "",
-      }
+    
     case "RESET FORM FIELDS":
       return {
         ...state,

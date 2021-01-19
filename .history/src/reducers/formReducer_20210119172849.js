@@ -14,8 +14,8 @@ const formReducer = (state, action) => {
       return {
         ...state,
         nameError: "",
-        emailError: "",
-        messageError: "",
+        emailError: null,
+        messageError: null,
       }
     case "RESET FORM FIELDS":
       return {
