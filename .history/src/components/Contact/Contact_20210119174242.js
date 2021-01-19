@@ -51,7 +51,7 @@ const Contact = () => {
   }
 
   const resetFormFields = () => {
-    //console.log("reset form fields")
+    console.log("reset form fields")
     dispatch({
       type: "RESET FORM FIELDS",
     })
@@ -62,7 +62,7 @@ const Contact = () => {
 
   // run any validation here
   const formValidation = () => {
-    //console.log("validate")
+    console.log("validate")
     let hasError = false
 
     if (formState.name === "") {
@@ -91,10 +91,10 @@ const Contact = () => {
 
     if (hasError) {
       setDisabled(true)
-      //console.log("errors")
+      console.log("errors")
     } else {
       setDisabled(false)
-      //console.log("no errors")
+      console.log("no errors")
       submitForm()
     }
   }
@@ -156,6 +156,10 @@ const Contact = () => {
   useEffect(() => {
     function clearForm() {
       clearFormErrors()
+      // setName("")
+      // setEmail("")
+      // setPhone("")
+      // setMessage("")
       resetFormFields()
       setFormSuccess(false)
       setFormFail(false)

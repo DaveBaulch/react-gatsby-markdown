@@ -51,7 +51,7 @@ const Contact = () => {
   }
 
   const resetFormFields = () => {
-    //console.log("reset form fields")
+    console.log("reset form fields")
     dispatch({
       type: "RESET FORM FIELDS",
     })
