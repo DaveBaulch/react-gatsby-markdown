@@ -8,17 +8,6 @@ import CloseContactButton from "../CloseContactButton"
 import FocusTrap from "focus-trap-react"
 import formReducer from "../../reducers/formReducer"
 
-import {
-  HANDLE_INPUT_TEXT,
-  HANDLE_FIELD_ERROR,
-  CLEAR_FIELD_ERRORS,
-  RESET_FORM_FIELDS,
-  SET_DISABLED,
-  SET_HAS_FOCUS,
-  SET_FORM_SUCCESS,
-  SET_FORM_FAIL,
-} from "../../actions/types"
-
 const initialFormState = {
   name: "",
   email: "",
@@ -39,7 +28,7 @@ const Contact = () => {
 
   const handleTextChange = e => {
     dispatch({
-      type: HANDLE_INPUT_TEXT,
+      type: "HANDLE_INPUT_TEXT",
       field: e.target.name,
       payload: e.target.value,
     })
@@ -47,7 +36,7 @@ const Contact = () => {
 
   const handleFieldError = (field, errorStatus) => {
     dispatch({
-      type: HANDLE_FIELD_ERROR,
+      type: "HANDLE_FIELD_ERROR",
       field: field,
       payload: errorStatus,
     })
@@ -55,40 +44,40 @@ const Contact = () => {
 
   const clearFormErrors = () => {
     dispatch({
-      type: CLEAR_FIELD_ERRORS,
+      type: "CLEAR_FIELD_ERRORS",
     })
   }
 
   const resetFormFields = () => {
     dispatch({
-      type: RESET_FORM_FIELDS,
+      type: "RESET_FORM_FIELDS",
     })
   }
 
   const setDisabled = status => {
     dispatch({
-      type: SET_DISABLED,
+      type: "SET_DISABLED",
       payload: status,
     })
   }
 
   const setHasFocus = element => {
     dispatch({
-      type: SET_HAS_FOCUS,
+      type: "SET HAS FOCUS",
       payload: element,
     })
   }
 
   const setFormSuccess = status => {
     dispatch({
-      type: SET_FORM_SUCCESS,
+      type: "SET_FORM SUCCESS",
       payload: status,
     })
   }
 
   const setFormFail = status => {
     dispatch({
-      type: SET_FORM_FAIL,
+      type: "SET FORM FAIL",
       payload: status,
     })
   }

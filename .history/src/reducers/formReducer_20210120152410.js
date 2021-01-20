@@ -8,6 +8,8 @@ import {
   SET_FORM_SUCCESS,
   SET_FORM_FAIL,
 } from "../actions/types"
+ 
+
 
 const formReducer = (state = {}, action) => {
   switch (action.type) {
@@ -28,7 +30,7 @@ const formReducer = (state = {}, action) => {
         emailError: "",
         messageError: "",
       }
-    case RESET_FORM_FIELDS:
+    case "RESET_FORM_FIELDS":
       return {
         ...state,
         name: "",
@@ -36,22 +38,22 @@ const formReducer = (state = {}, action) => {
         phone: "",
         message: "",
       }
-    case SET_DISABLED:
+    case "SET_DISABLED":
       return {
         ...state,
         formDisabled: action.payload,
       }
-    case SET_HAS_FOCUS:
+    case "SET_HAS_FOCUS":
       return {
         ...state,
         hasFocus: action.payload,
       }
-    case SET_FORM_SUCCESS:
+    case "SET_FORM_SUCCESS":
       return {
         ...state,
         formSuccess: action.payload,
       }
-    case SET_FORM_FAIL:
+    case "SET_FORM_FAIL":
       return {
         ...state,
         formFail: action.payload,

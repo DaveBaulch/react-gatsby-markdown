@@ -7,6 +7,16 @@ import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
 import FocusTrap from "focus-trap-react"
 import formReducer from "../../reducers/formReducer"
+// import {
+//   handleTextChange,
+//   handleFieldError,
+//   clearFormErrors,
+//   resetFormFields,
+//   setDisabled,
+//   setHasFocus,
+//   setFormSuccess,
+//   setFormFail,
+// } from "../../actions"
 
 import {
   HANDLE_INPUT_TEXT,
@@ -37,61 +47,61 @@ const Contact = () => {
   const { isContactActive } = useContext(ContactContext)
   const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
-  const handleTextChange = e => {
-    dispatch({
-      type: HANDLE_INPUT_TEXT,
-      field: e.target.name,
-      payload: e.target.value,
-    })
-  }
+  // const handleTextChange = e => {
+  //   dispatch({
+  //     type: HANDLE_INPUT_TEXT,
+  //     field: e.target.name,
+  //     payload: e.target.value,
+  //   })
+  // }
 
-  const handleFieldError = (field, errorStatus) => {
-    dispatch({
-      type: HANDLE_FIELD_ERROR,
-      field: field,
-      payload: errorStatus,
-    })
-  }
+  // const handleFieldError = (field, errorStatus) => {
+  //   dispatch({
+  //     type: HANDLE_FIELD_ERROR,
+  //     field: field,
+  //     payload: errorStatus,
+  //   })
+  // }
 
-  const clearFormErrors = () => {
-    dispatch({
-      type: CLEAR_FIELD_ERRORS,
-    })
-  }
+  // const clearFormErrors = () => {
+  //   dispatch({
+  //     type: CLEAR_FIELD_ERRORS,
+  //   })
+  // }
 
-  const resetFormFields = () => {
-    dispatch({
-      type: RESET_FORM_FIELDS,
-    })
-  }
+  // const resetFormFields = () => {
+  //   dispatch({
+  //     type: RESET_FORM_FIELDS,
+  //   })
+  // }
 
-  const setDisabled = status => {
-    dispatch({
-      type: SET_DISABLED,
-      payload: status,
-    })
-  }
+  // const setDisabled = status => {
+  //   dispatch({
+  //     type: SET_DISABLED,
+  //     payload: status,
+  //   })
+  // }
 
-  const setHasFocus = element => {
-    dispatch({
-      type: SET_HAS_FOCUS,
-      payload: element,
-    })
-  }
+  // const setHasFocus = element => {
+  //   dispatch({
+  //     type: SET_HAS_FOCUS,
+  //     payload: element,
+  //   })
+  // }
 
-  const setFormSuccess = status => {
-    dispatch({
-      type: SET_FORM_SUCCESS,
-      payload: status,
-    })
-  }
+  // const setFormSuccess = status => {
+  //   dispatch({
+  //     type: SET_FORM_SUCCESS,
+  //     payload: status,
+  //   })
+  // }
 
-  const setFormFail = status => {
-    dispatch({
-      type: SET_FORM_FAIL,
-      payload: status,
-    })
-  }
+  // const setFormFail = status => {
+  //   dispatch({
+  //     type: SET_FORM_FAIL,
+  //     payload: status,
+  //   })
+  // }
 
   // run any validation here
   const formValidation = () => {

@@ -17,7 +17,8 @@ import {
   SET_HAS_FOCUS,
   SET_FORM_SUCCESS,
   SET_FORM_FAIL,
-} from "../../actions/types"
+} from "../actions/types"
+
 
 const initialFormState = {
   name: "",
@@ -67,28 +68,28 @@ const Contact = () => {
 
   const setDisabled = status => {
     dispatch({
-      type: SET_DISABLED,
+      type: "SET_DISABLED",
       payload: status,
     })
   }
 
   const setHasFocus = element => {
     dispatch({
-      type: SET_HAS_FOCUS,
+      type: "SET_HAS_FOCUS",
       payload: element,
     })
   }
 
   const setFormSuccess = status => {
     dispatch({
-      type: SET_FORM_SUCCESS,
+      type: "SET_FORM_SUCCESS",
       payload: status,
     })
   }
 
   const setFormFail = status => {
     dispatch({
-      type: SET_FORM_FAIL,
+      type: "SET FORM FAIL",
       payload: status,
     })
   }

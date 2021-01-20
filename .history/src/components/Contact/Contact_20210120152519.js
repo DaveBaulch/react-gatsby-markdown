@@ -17,7 +17,7 @@ import {
   SET_HAS_FOCUS,
   SET_FORM_SUCCESS,
   SET_FORM_FAIL,
-} from "../../actions/types"
+} from "../actions/types"
 
 const initialFormState = {
   name: "",

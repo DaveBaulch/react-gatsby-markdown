@@ -1,34 +1,23 @@
-import {
-  HANDLE_INPUT_TEXT,
-  HANDLE_FIELD_ERROR,
-  CLEAR_FIELD_ERRORS,
-  RESET_FORM_FIELDS,
-  SET_DISABLED,
-  SET_HAS_FOCUS,
-  SET_FORM_SUCCESS,
-  SET_FORM_FAIL,
-} from "../actions/types"
-
-const formReducer = (state = {}, action) => {
+const formReducer = (state, action) => {
   switch (action.type) {
-    case HANDLE_INPUT_TEXT:
+    case "HANDLE_INPUT_TEXT":
       return {
         ...state,
         [action.field]: action.payload,
       }
-    case HANDLE_FIELD_ERROR:
+    case "HANDLE_FIELD_ERROR":
       return {
         ...state,
         [action.field]: action.payload,
       }
-    case CLEAR_FIELD_ERRORS:
+    case "CLEAR_FIELD_ERRORS":
       return {
         ...state,
         nameError: "",
         emailError: "",
         messageError: "",
       }
-    case RESET_FORM_FIELDS:
+    case "RESET_FORM_FIELDS":
       return {
         ...state,
         name: "",
@@ -36,22 +25,22 @@ const formReducer = (state = {}, action) => {
         phone: "",
         message: "",
       }
-    case SET_DISABLED:
+    case "SET_DISABLED":
       return {
         ...state,
         formDisabled: action.payload,
       }
-    case SET_HAS_FOCUS:
+    case "SET_HAS_FOCUS":
       return {
         ...state,
         hasFocus: action.payload,
       }
-    case SET_FORM_SUCCESS:
+    case "SET FORM SUCCESS":
       return {
         ...state,
         formSuccess: action.payload,
       }
-    case SET_FORM_FAIL:
+    case "SET FORM FAIL":
       return {
         ...state,
         formFail: action.payload,

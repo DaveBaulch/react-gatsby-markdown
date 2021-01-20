@@ -7,6 +7,16 @@ import "./Contact.scss"
 import CloseContactButton from "../CloseContactButton"
 import FocusTrap from "focus-trap-react"
 import formReducer from "../../reducers/formReducer"
+// import {
+//   handleTextChange,
+//   handleFieldError,
+//   clearFormErrors,
+//   resetFormFields,
+//   setDisabled,
+//   setHasFocus,
+//   setFormSuccess,
+//   setFormFail,
+// } from "../../actions"
 
 import {
   HANDLE_INPUT_TEXT,

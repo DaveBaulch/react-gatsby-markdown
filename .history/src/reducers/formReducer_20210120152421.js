@@ -8,6 +8,8 @@ import {
   SET_FORM_SUCCESS,
   SET_FORM_FAIL,
 } from "../actions/types"
+ 
+
 
 const formReducer = (state = {}, action) => {
   switch (action.type) {
@@ -51,7 +53,7 @@ const formReducer = (state = {}, action) => {
         ...state,
         formSuccess: action.payload,
       }
-    case SET_FORM_FAIL:
+    case SET_FORM_FAIL":
       return {
         ...state,
         formFail: action.payload,
