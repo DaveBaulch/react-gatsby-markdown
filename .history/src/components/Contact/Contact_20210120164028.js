@@ -40,14 +40,14 @@ const Contact = () => {
   const handleTextChange = e => {
     dispatch({
       type: HANDLE_INPUT_TEXT,
-      payload: { field: e.target.name, value: e.target.value },
+      payload: { field: e.target.name, value: e.target.value }
     })
   }
 
   const handleFieldError = (field, errorStatus) => {
     dispatch({
       type: HANDLE_FIELD_ERROR,
-      payload: { field, errorStatus },
+      payload: { field: e.target.name, value: e.target.value },
     })
   }
 

@@ -19,7 +19,7 @@ const formReducer = (state = {}, action) => {
     case HANDLE_FIELD_ERROR:
       return {
         ...state,
-        [action.payload.field]: action.payload.errorStatus,
+        [action.payload.field]: action.payload.status,
       }
     case CLEAR_FIELD_ERRORS:
       return {

@@ -14,12 +14,12 @@ const formReducer = (state = {}, action) => {
     case HANDLE_INPUT_TEXT:
       return {
         ...state,
-        [action.payload.field]: action.payload.value,
+        [action.field]: action.payload,
       }
     case HANDLE_FIELD_ERROR:
       return {
         ...state,
-        [action.payload.field]: action.payload.errorStatus,
+        [action.payload.field]: action.payload.error,
       }
     case CLEAR_FIELD_ERRORS:
       return {

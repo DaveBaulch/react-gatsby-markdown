@@ -47,7 +47,7 @@ const Contact = () => {
   const handleFieldError = (field, errorStatus) => {
     dispatch({
       type: HANDLE_FIELD_ERROR,
-      payload: { field, errorStatus },
+      payload: { field, erroRstatus },
     })
   }
 
